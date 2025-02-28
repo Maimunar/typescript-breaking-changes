@@ -1,0 +1,86 @@
+{
+  "name": "EnumDeclaration",
+  "x": 505,
+  "y": 100,
+  "children": [
+    {
+      "name": "modifiers",
+      "parentRelation": "optional",
+      "x": 271,
+      "y": 193,
+      "children": [
+        {
+          "name": "ExportKeyword",
+          "parentRelation": "optional",
+          "x": 103,
+          "y": 287
+        },
+        {
+          "name": "DeclareKeyword",
+          "parentRelation": "optional",
+          "x": 226,
+          "y": 336
+        },
+        {
+          "name": "Declaration",
+          "parentRelation": "optional",
+          "x": 370,
+          "y": 287,
+          "children": [
+            {
+              "name": "ConstKeyword",
+              "x": 375,
+              "y": 390
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "parentRelation": "mandatory",
+      "x": 500,
+      "y": 330
+    },
+    {
+      "name": "members",
+      "parentRelation": "mandatory",
+      "x": 623,
+      "y": 180,
+      "children": [
+        {
+          "name": "EnumMember*",
+          "x": 698,
+          "y": 273,
+          "children": [
+            {
+              "name": "name",
+              "parentRelation": "mandatory",
+              "x": 650,
+              "y": 356
+            },
+            {
+              "name": "initializer",
+              "parentRelation": "optional",
+              "childrenRelation": "xor",
+              "x": 761,
+              "y": 356,
+              "children": [
+                {
+                  "name": "StringLiteral",
+                  "x": 641,
+                  "y": 454
+                },
+                {
+                  "name": "NumericLiteral",
+                  "x": 859,
+                  "y": 447
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
