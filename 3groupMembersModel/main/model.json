@@ -1,0 +1,68 @@
+{
+  "name": "SourceFile",
+  "children": [
+    {
+      "name": "statements",
+      "parentRelation": "mandatory",
+      "children": [
+        {
+          "name": "statement*",
+          "childrenRelation": "xor",
+          "children": [
+            {
+              "name": "ClassDeclaration",
+              "x": 164,
+              "y": 386
+            },
+            {
+              "name": "FunctionDeclaration",
+              "x": 317,
+              "y": 483
+            },
+            {
+              "name": "VariableStatement",
+              "x": 453,
+              "y": 599
+            },
+            {
+              "name": "InterfaceDeclaration",
+              "x": 715,
+              "y": 451
+            },
+            {
+              "name": "EnumDeclaration",
+              "x": 723,
+              "y": 379
+            },
+            {
+              "name": "TypeAliasDeclaration",
+              "x": 152,
+              "y": 533
+            },
+            {
+              "name": "ImportDeclaration",
+              "x": 277,
+              "y": 436
+            },
+            {
+              "name": "ExportAssignment",
+              "x": 539,
+              "y": 499
+            },
+            {
+              "name": "ExportDeclaration",
+              "x": 686,
+              "y": 549
+            }
+          ],
+          "x": 358,
+          "y": 267
+        }
+      ],
+      "x": 365,
+      "y": 180
+    }
+  ],
+  "x": 366,
+  "y": 97
+}

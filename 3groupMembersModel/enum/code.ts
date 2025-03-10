@@ -7,8 +7,7 @@ export const EnumDeclaration: FeatureModel = {
       name: "modifiers",
       children: [
         {
-          name: "Declaration",
-          children: [{ name: "ConstKeyword" }],
+          name: "ExportKeyword",
           parentRelation: "optional",
         },
         {
@@ -16,7 +15,8 @@ export const EnumDeclaration: FeatureModel = {
           parentRelation: "optional",
         },
         {
-          name: "ExportKeyword",
+          name: "Declaration",
+          children: [{ name: "ConstKeyword" }],
           parentRelation: "optional",
         },
       ],
@@ -34,7 +34,13 @@ export const EnumDeclaration: FeatureModel = {
               name: "initializer",
               parentRelation: "optional",
               childrenRelation: "xor",
-              children: [{ name: "StringLiteral" }, { name: "NumericLiteral" }],
+              children: [
+                {
+                  name: "type",
+                  children: [{ name: "string" }, { name: "number" }],
+                  childrenRelation: "xor",
+                },
+              ],
             },
           ],
         },

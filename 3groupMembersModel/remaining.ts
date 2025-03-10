@@ -190,16 +190,6 @@ const remaining = {
     { name: "ExpressionStatement", children: [{ name: "expression" }] },
     { name: "ClassDeclaration" },
     {
-      name: "InterfaceDeclaration",
-      children: [
-        { name: "modifiers" },
-        { name: "name" },
-        { name: "typeParameters" },
-        { name: "heritageClauses" },
-        { name: "members" },
-      ],
-    },
-    {
       name: "TypeAliasDeclaration",
       children: [
         { name: "modifiers" },
