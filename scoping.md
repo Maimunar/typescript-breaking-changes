@@ -92,3 +92,11 @@ ImportType = type D = import("package").Object
 
 - TypeParameters are generic types - <T>
 - We need to spend a time untangling a type's feature model
+
+#### Variables
+
+- We are not considering exclamation tokens as they make static analysis more difficult and their behaviour can be described as "I know what I am doing and I dont want the compiler to complicate things"
+
+#### Type Alias
+
+- For now we are not considering generic types

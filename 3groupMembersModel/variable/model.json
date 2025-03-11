@@ -1,0 +1,99 @@
+{
+  "name": "VariableStatement",
+  "children": [
+    {
+      "name": "modifiers",
+      "parentRelation": "optional",
+      "children": [
+        {
+          "name": "ExportKeyword",
+          "parentRelation": "optional",
+          "x": 74,
+          "y": 276
+        },
+        {
+          "name": "DeclareKeyword",
+          "parentRelation": "optional",
+          "x": 247,
+          "y": 275
+        }
+      ],
+      "x": 199,
+      "y": 197
+    },
+    {
+      "name": "VariableDeclarationList",
+      "parentRelation": "mandatory",
+      "children": [
+        {
+          "name": "Declaration",
+          "parentRelation": "mandatory",
+          "childrenRelation": "xor",
+          "children": [
+            {
+              "name": "ConstKeyword",
+              "x": 106,
+              "y": 457
+            },
+            {
+              "name": "LetKeyword",
+              "x": 263,
+              "y": 454
+            },
+            {
+              "name": "VarKeyword",
+              "x": 402,
+              "y": 454
+            }
+          ],
+          "x": 258,
+          "y": 339
+        },
+        {
+          "name": "declarations",
+          "parentRelation": "mandatory",
+          "children": [
+            {
+              "name": "VariableDeclaration*",
+              "children": [
+                {
+                  "name": "name",
+                  "parentRelation": "mandatory",
+                  "x": 502,
+                  "y": 519
+                },
+                {
+                  "name": "type",
+                  "parentRelation": "optional",
+                  "x": 602,
+                  "y": 519
+                },
+                {
+                  "name": "initializer",
+                  "parentRelation": "optional",
+                  "children": [
+                    {
+                      "name": "Expression",
+                      "x": 733,
+                      "y": 600
+                    }
+                  ],
+                  "x": 729,
+                  "y": 519
+                }
+              ],
+              "x": 596,
+              "y": 402
+            }
+          ],
+          "x": 585,
+          "y": 295
+        }
+      ],
+      "x": 498,
+      "y": 207
+    }
+  ],
+  "x": 399,
+  "y": 101
+}

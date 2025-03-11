@@ -1,0 +1,39 @@
+{
+  "name": "TypeAliasDeclaration",
+  "children": [
+    {
+      "name": "modifiers",
+      "parentRelation": "optional",
+      "children": [
+        {
+          "name": "ExportKeyword",
+          "parentRelation": "optional",
+          "x": 84,
+          "y": 282
+        },
+        {
+          "name": "DeclareKeyword",
+          "parentRelation": "optional",
+          "x": 253,
+          "y": 282
+        }
+      ],
+      "x": 168,
+      "y": 216
+    },
+    {
+      "name": "name",
+      "parentRelation": "mandatory",
+      "x": 332,
+      "y": 221
+    },
+    {
+      "name": "type",
+      "parentRelation": "mandatory",
+      "x": 510,
+      "y": 221
+    }
+  ],
+  "x": 332,
+  "y": 92
+}
