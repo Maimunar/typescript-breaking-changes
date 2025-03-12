@@ -1,0 +1,80 @@
+{
+  "name": "ImportDeclaration",
+  "children": [
+    {
+      "name": "importClause",
+      "children": [
+        {
+          "name": "typeClause",
+          "parentRelation": "optional",
+          "x": 191,
+          "y": 318
+        },
+        {
+          "name": "namingConstruct",
+          "childrenRelation": "or",
+          "children": [
+            {
+              "name": "name",
+              "x": 316,
+              "y": 438
+            },
+            {
+              "name": "namedBinding",
+              "childrenRelation": "xor",
+              "children": [
+                {
+                  "name": "NamespaceImport",
+                  "children": [
+                    {
+                      "name": "name",
+                      "parentRelation": "mandatory",
+                      "x": 397,
+                      "y": 654
+                    }
+                  ],
+                  "x": 401,
+                  "y": 545
+                },
+                {
+                  "name": "NamedImports",
+                  "children": [
+                    {
+                      "name": "element*",
+                      "children": [
+                        {
+                          "name": "name",
+                          "parentRelation": "mandatory",
+                          "x": 512,
+                          "y": 761
+                        },
+                        {
+                          "name": "propertyName",
+                          "parentRelation": "optional",
+                          "x": 652,
+                          "y": 761
+                        }
+                      ],
+                      "x": 609,
+                      "y": 639
+                    }
+                  ],
+                  "x": 614,
+                  "y": 550
+                }
+              ],
+              "x": 512,
+              "y": 427
+            }
+          ],
+          "x": 432,
+          "y": 314
+        }
+      ],
+      "x": 306,
+      "y": 207
+    }
+  ],
+  "x": 312,
+  "y": 100
+}
