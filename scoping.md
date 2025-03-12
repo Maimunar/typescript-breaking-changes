@@ -48,6 +48,7 @@ I started looking into the main declarations. Here are some findings:
 #### Types
 
 There are the following types in Typescript that are relevant to our case.
+They are explained extensively in the types folder as well as in my extra notes
 
 ```
 TypePredicate - (x:any) => x is number
@@ -90,8 +91,8 @@ ImportType = type D = import("package").Object
   - Export Keyword
   - Default Keyword
 
-- TypeParameters are generic types - <T>
-- We need to spend a time untangling a type's feature model
+- TypeParameters are generic types - <T>. We will not consider them
+- We need to spend a time untangling a type's feature model - update, now we did and the type parameter is doing a lot of heavy lifting for the whole system
 
 #### Variables
 
@@ -100,3 +101,28 @@ ImportType = type D = import("package").Object
 #### Type Alias
 
 - For now we are not considering generic types
+
+#### ImportDeclaration
+
+This might be irrelevant to the API. Need to check.
+
+#### Function
+
+Asterisk token we skip because we are not doing generators with yield.
+We also skip generic parameters (typeParameters) for now.
+the ... token can only be used on the last parameter
+
+#### ExportDeclaration
+
+We ignore the attributes for the scope of this research
+NamespaceExport = `export * as a`
+NamedExport = `export { a }`
+
+#### ExportAssignment
+
+I could not find any relevant modifiers so i skipped it from the model
+
+#### ClassDeclaration
+
+We are skipping generic types for classes
+Modifiers = export default does not work with declare
