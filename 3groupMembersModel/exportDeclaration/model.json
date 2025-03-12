@@ -1,0 +1,80 @@
+{
+  "name": "ExportDeclaration",
+  "children": [
+    {
+      "name": "isTypeOnly",
+      "parentRelation": "optional",
+      "x": 107,
+      "y": 212
+    },
+    {
+      "name": "exportClause",
+      "parentRelation": "mandatory",
+      "childrenRelation": "xor",
+      "children": [
+        {
+          "name": "NamespaceExport",
+          "children": [
+            {
+              "name": "name",
+              "parentRelation": "mandatory",
+              "x": 124,
+              "y": 429
+            }
+          ],
+          "x": 126,
+          "y": 334
+        },
+        {
+          "name": "NamedExports",
+          "children": [
+            {
+              "name": "ExportSpecifier*",
+              "children": [
+                {
+                  "name": "name",
+                  "parentRelation": "mandatory",
+                  "x": 161,
+                  "y": 548
+                },
+                {
+                  "name": "isTypeOnly",
+                  "parentRelation": "optional",
+                  "x": 291,
+                  "y": 548
+                },
+                {
+                  "name": "propertyName",
+                  "parentRelation": "optional",
+                  "x": 441,
+                  "y": 548
+                }
+              ],
+              "x": 308,
+              "y": 435
+            }
+          ],
+          "x": 310,
+          "y": 333
+        }
+      ],
+      "x": 265,
+      "y": 212
+    },
+    {
+      "name": "moduleSpecifier",
+      "parentRelation": "optional",
+      "children": [
+        {
+          "name": "StringLiteral",
+          "x": 477,
+          "y": 306
+        }
+      ],
+      "x": 479,
+      "y": 217
+    }
+  ],
+  "x": 266,
+  "y": 102
+}
