@@ -6,16 +6,6 @@ const remaining = {
       children: [{ name: "left" }, { name: "right" }],
     },
     {
-      name: "TypeParameter",
-      children: [
-        { name: "modifiers" },
-        { name: "name" },
-        { name: "constraint" },
-        { name: "default" },
-        { name: "expression" },
-      ],
-    },
-    {
       name: "Parameter",
       children: [
         { name: "modifiers" },
@@ -90,17 +80,6 @@ const remaining = {
       ],
     },
     {
-      name: "FunctionDeclaration",
-      children: [
-        { name: "asteriskToken" },
-        { name: "name" },
-        { name: "typeParameters" },
-        { name: "parameters" },
-        { name: "type" },
-        { name: "body" },
-      ],
-    },
-    {
       name: "FunctionExpression",
       children: [
         { name: "asteriskToken" },
@@ -112,92 +91,10 @@ const remaining = {
       ],
     },
     {
-      name: "ArrowFunction",
-      children: [
-        { name: "typeParameters" },
-        { name: "parameters" },
-        { name: "type" },
-        { name: "equalsGreaterThanToken" },
-        { name: "body" },
-      ],
-    },
-    {
       name: "ClassStaticBlockDeclaration",
       children: [{ name: "modifiers" }, { name: "body" }],
     },
-    {
-      name: "TypeReference",
-      children: [{ name: "typeName" }, { name: "typeArguments" }],
-    },
-    { name: "TypeLiteral", children: [{ name: "members" }] },
-    { name: "ArrayType", children: [{ name: "elementType" }] },
-    { name: "TupleType", children: [{ name: "elements" }] },
-    { name: "UnionType" },
-    { name: "IntersectionType" },
-    {
-      name: "ConditionalType",
-      children: [
-        { name: "checkType" },
-        { name: "extendsType" },
-        { name: "trueType" },
-        { name: "falseType" },
-      ],
-    },
-    { name: "InferType", children: [{ name: "typeParameter" }] },
-    {
-      name: "ImportType",
-      children: [
-        { name: "argument" },
-        { name: "attributes" },
-        { name: "qualifier" },
-        { name: "typeArguments" },
-      ],
-    },
-    {
-      name: "ImportTypeAssertionContainer",
-      children: [{ name: "assertClause" }],
-    },
-    { name: "ParenthesizedType" },
-    { name: "TypeOperator" },
-    {
-      name: "IndexedAccessType",
-      children: [{ name: "objectType" }, { name: "indexType" }],
-    },
-    {
-      name: "MappedType",
-      children: [
-        { name: "readonlyToken" },
-        { name: "typeParameter" },
-        { name: "nameType" },
-        { name: "questionToken" },
-        { name: "type" },
-        { name: "members" },
-      ],
-    },
-    { name: "LiteralType", children: [{ name: "literal" }] },
-    {
-      name: "SourceFile",
-      children: [{ name: "statements" }, { name: "endOfFileToken" }],
-    },
-    {
-      name: "VariableStatement",
-      children: [{ name: "modifiers" }, { name: "declarationList" }],
-    },
-    {
-      name: "VariableDeclarationList",
-      children: [{ name: "declarations" }],
-    },
-    { name: "ExpressionStatement", children: [{ name: "expression" }] },
     { name: "ClassDeclaration" },
-    {
-      name: "TypeAliasDeclaration",
-      children: [
-        { name: "modifiers" },
-        { name: "name" },
-        { name: "typeParameters" },
-        { name: "type" },
-      ],
-    },
     {
       name: "ModuleDeclaration",
       children: [{ name: "modifiers" }, { name: "name" }, { name: "body" }],
@@ -208,15 +105,6 @@ const remaining = {
         { name: "modifiers" },
         { name: "name" },
         { name: "moduleReference" },
-      ],
-    },
-    {
-      name: "ImportDeclaration",
-      children: [
-        { name: "modifiers" },
-        { name: "importClause" },
-        { name: "moduleSpecifier" },
-        { name: "attributes" },
       ],
     },
     {
@@ -231,19 +119,6 @@ const remaining = {
     {
       name: "NamespaceExportDeclaration",
       children: [{ name: "modifiers" }, { name: "name" }],
-    },
-    {
-      name: "ExportDeclaration",
-      children: [
-        { name: "modifiers" },
-        { name: "exportClause" },
-        { name: "moduleSpecifier" },
-        { name: "attributes" },
-      ],
-    },
-    {
-      name: "TemplateLiteralType",
-      children: [{ name: "head" }, { name: "templateSpans" }],
     },
   ],
 };

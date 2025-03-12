@@ -1,0 +1,133 @@
+{
+  "name": "InterfaceDeclaration",
+  "x": 423,
+  "y": 106,
+  "children": [
+    {
+      "name": "modifiers",
+      "parentRelation": "optional",
+      "childrenRelation": "xor",
+      "x": 97,
+      "y": 223,
+      "children": [
+        {
+          "name": "ExportKeyword",
+          "x": 90,
+          "y": 322,
+          "children": [
+            {
+              "name": "DefaultKeyword",
+              "parentRelation": "optional",
+              "x": 89,
+              "y": 444
+            }
+          ]
+        },
+        {
+          "name": "DeclareKeyword",
+          "x": 208,
+          "y": 371
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "parentRelation": "mandatory",
+      "x": 427,
+      "y": 270
+    },
+    {
+      "name": "typeParameters",
+      "parentRelation": "optional",
+      "x": 326,
+      "y": 217,
+      "children": [
+        {
+          "name": "type*",
+          "x": 333,
+          "y": 359
+        }
+      ]
+    },
+    {
+      "name": "heritageClauses",
+      "parentRelation": "optional",
+      "x": 538,
+      "y": 213,
+      "children": [
+        {
+          "name": "heritageClause*",
+          "x": 522,
+          "y": 339,
+          "children": [
+            {
+              "name": "token",
+              "parentRelation": "mandatory",
+              "childrenRelation": "xor",
+              "x": 377,
+              "y": 448,
+              "children": [
+                {
+                  "name": "ExtendsKeyword",
+                  "x": 224,
+                  "y": 573
+                },
+                {
+                  "name": "ImplementsKeyword",
+                  "x": 412,
+                  "y": 559
+                }
+              ]
+            },
+            {
+              "name": "types",
+              "parentRelation": "mandatory",
+              "x": 521,
+              "y": 459,
+              "children": [
+                {
+                  "name": "ExpressionWithTypeArguments*",
+                  "x": 540,
+                  "y": 637
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "members",
+      "parentRelation": "mandatory",
+      "x": 742,
+      "y": 213,
+      "children": [
+        {
+          "name": "TypeElement*",
+          "x": 753,
+          "y": 319,
+          "children": [
+            {
+              "name": "name",
+              "parentRelation": "mandatory",
+              "x": 600,
+              "y": 450
+            },
+            {
+              "name": "questionToken",
+              "parentRelation": "optional",
+              "x": 714,
+              "y": 503
+            },
+            {
+              "name": "type",
+              "parentRelation": "mandatory",
+              "x": 859,
+              "y": 456
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

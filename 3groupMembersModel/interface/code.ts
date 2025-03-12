@@ -24,11 +24,6 @@ export const InterfaceDeclaration: FeatureModel = {
     },
     { name: "name", parentRelation: "mandatory" },
     {
-      name: "typeParameters",
-      parentRelation: "optional",
-      children: [{ name: "type*" }],
-    },
-    {
       name: "heritageClauses",
       parentRelation: "optional",
       children: [
