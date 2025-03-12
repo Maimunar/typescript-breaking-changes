@@ -1,0 +1,18 @@
+{
+  "name": "ExportAssignment",
+  "childrenRelation": "xor",
+  "children": [
+    {
+      "name": "Expression",
+      "x": 132,
+      "y": 219
+    },
+    {
+      "name": "Identifier",
+      "x": 306,
+      "y": 224
+    }
+  ],
+  "x": 214,
+  "y": 110
+}
