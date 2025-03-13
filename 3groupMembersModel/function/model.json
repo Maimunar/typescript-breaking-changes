@@ -1,13 +1,19 @@
 {
   "name": "FunctionDeclaration",
+  "x": 335,
+  "y": 108,
   "children": [
     {
       "name": "modifiers",
       "parentRelation": "optional",
       "childrenRelation": "or",
+      "x": 164,
+      "y": 227,
       "children": [
         {
           "name": "ExportKeyword",
+          "x": 94,
+          "y": 324,
           "children": [
             {
               "name": "DefaultKeyword",
@@ -15,18 +21,14 @@
               "x": 95,
               "y": 423
             }
-          ],
-          "x": 94,
-          "y": 324
+          ]
         },
         {
           "name": "AsyncKeyword",
           "x": 250,
           "y": 322
         }
-      ],
-      "x": 164,
-      "y": 227
+      ]
     },
     {
       "name": "name",
@@ -37,15 +39,44 @@
     {
       "name": "parameters",
       "parentRelation": "mandatory",
+      "x": 400,
+      "y": 219,
       "children": [
         {
           "name": "Parameter*",
+          "x": 397,
+          "y": 330,
           "children": [
             {
-              "name": "dotDotDotToken",
+              "name": "extraOperator",
               "parentRelation": "optional",
-              "x": 252,
-              "y": 473
+              "childrenRelation": "xor",
+              "children": [
+                {
+                  "name": "dotDotDotToken",
+                  "x": 120,
+                  "y": 540
+                },
+                {
+                  "name": "questionToken",
+                  "x": 237,
+                  "y": 586
+                },
+                {
+                  "name": "initializer",
+                  "children": [
+                    {
+                      "name": "Expression",
+                      "x": 389,
+                      "y": 665
+                    }
+                  ],
+                  "x": 382,
+                  "y": 556
+                }
+              ],
+              "x": 228,
+              "y": 471
             },
             {
               "name": "name",
@@ -54,41 +85,20 @@
               "y": 425
             },
             {
-              "name": "questionToken",
-              "parentRelation": "optional",
-              "x": 433,
-              "y": 487
-            },
-            {
               "name": "type",
               "parentRelation": "optional",
               "x": 512,
               "y": 440
-            },
-            {
-              "name": "initializer",
-              "parentRelation": "optional",
-              "children": [
-                {
-                  "name": "Expression",
-                  "x": 650,
-                  "y": 549
-                }
-              ],
-              "x": 651,
-              "y": 440
             }
-          ],
-          "x": 397,
-          "y": 330
+          ]
         }
-      ],
-      "x": 400,
-      "y": 219
+      ]
     },
     {
       "name": "type",
       "parentRelation": "mandatory",
+      "x": 580,
+      "y": 220,
       "children": [
         {
           "name": "returnType",
@@ -96,11 +106,7 @@
           "x": 581,
           "y": 304
         }
-      ],
-      "x": 580,
-      "y": 220
+      ]
     }
-  ],
-  "x": 335,
-  "y": 108
+  ]
 }

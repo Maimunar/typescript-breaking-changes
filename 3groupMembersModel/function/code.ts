@@ -23,14 +23,20 @@ export const FunctionDeclaration: FeatureModel = {
         {
           name: "Parameter*",
           children: [
-            { name: "dotDotDotToken", parentRelation: "optional" },
             { name: "name", parentRelation: "mandatory" },
-            { name: "questionToken", parentRelation: "optional" },
             { name: "type", parentRelation: "optional" },
             {
-              name: "initializer",
+              name: "extraOperator",
               parentRelation: "optional",
-              children: [{ name: "Expression" }],
+              childrenRelation: "xor",
+              children: [
+                { name: "dotDotDotToken" },
+                { name: "questionToken" },
+                {
+                  name: "initializer",
+                  children: [{ name: "Expression" }],
+                },
+              ],
             },
           ],
         },
