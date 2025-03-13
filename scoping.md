@@ -111,6 +111,8 @@ This might be irrelevant to the API. Need to check.
 Asterisk token we skip because we are not doing generators with yield.
 We also skip generic parameters (typeParameters) for now.
 the ... token can only be used on the last parameter
+parameter can not be with a question mark and an initializer
+parameter can not be with a rest operator and an initializer
 
 #### ExportDeclaration
 
@@ -126,3 +128,9 @@ I could not find any relevant modifiers so i skipped it from the model
 
 We are skipping generic types for classes
 Modifiers = export default does not work with declare
+Members - static blocks offer semantics and therefore we can remove them
+Getters cant have parameters. Setters cant have rest parameters and optional parameters and initializers
+IndexSignature is used for further typechecking of semantics, not relevant to our case
+abstract keyword only used in abstract class
+methods = skipping asterisk because we are not handling generators, no generic parameters
+no question and exclamation tokens

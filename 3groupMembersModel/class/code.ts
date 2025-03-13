@@ -55,19 +55,191 @@ export const ClassDeclaration: FeatureModel = {
           name: "ClassElement*",
           childrenRelation: "xor",
           children: [
-            { name: "StaticBlockDeclaration" },
             {
-              name: "AccessorDeclaration",
-              childrenRelation: "xor",
+              name: "GetAccessor",
               children: [
-                { name: "GetAccessorDeclaration" },
-                { name: "SetAccessorDeclaration" },
+                {
+                  name: "modifiers",
+                  parentRelation: "optional",
+                  childrenRelation: "or",
+                  children: [
+                    { name: "static" },
+                    {
+                      name: "accessibilityModifiers",
+                      childrenRelation: "xor",
+                      children: [
+                        { name: "private" },
+                        { name: "public" },
+                        { name: "protected" },
+                      ],
+                    },
+                  ],
+                },
+                { name: "name", parentRelation: "mandatory" },
+                {
+                  name: "type",
+                  parentRelation: "optional",
+                  children: [{ name: "returnType" }],
+                },
               ],
             },
-            { name: "ConstructorDeclaration" },
-            { name: "IndexSignatureDeclaration" },
-            { name: "PropertyDeclaration" },
-            { name: "MethodDeclaration" },
+            {
+              name: "SetAccessorDeclaration",
+              children: [
+                {
+                  name: "modifiers",
+                  parentRelation: "optional",
+                  childrenRelation: "or",
+                  children: [
+                    { name: "static" },
+                    {
+                      name: "accessibilityModifiers",
+                      childrenRelation: "xor",
+                      children: [
+                        { name: "private" },
+                        { name: "public" },
+                        { name: "protected" },
+                      ],
+                    },
+                  ],
+                },
+                { name: "name", parentRelation: "mandatory" },
+                {
+                  name: "type",
+                  parentRelation: "optional",
+                  children: [{ name: "returnType" }],
+                },
+                {
+                  name: "parameters",
+                  parentRelation: "mandatory",
+                  children: [
+                    {
+                      name: "Parameter*",
+                      children: [
+                        { name: "name", parentRelation: "mandatory" },
+                        { name: "type", parentRelation: "optional" },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "ConstructorDeclaration",
+              children: [
+                {
+                  name: "parameters",
+                  parentRelation: "mandatory",
+                  children: [
+                    {
+                      name: "Parameter*",
+                      children: [
+                        { name: "name", parentRelation: "mandatory" },
+                        { name: "type", parentRelation: "optional" },
+                        {
+                          name: "extraOperator",
+                          parentRelation: "optional",
+                          childrenRelation: "xor",
+                          children: [
+                            {
+                              name: "dotDotDotToken",
+                            },
+                            {
+                              name: "questionToken",
+                            },
+                            {
+                              name: "initializer",
+                              children: [{ name: "Expression" }],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+                { name: "returnType", parentRelation: "mandatory" },
+              ],
+            },
+            {
+              name: "PropertyDeclaration",
+              children: [
+                {
+                  name: "modifiers",
+                  parentRelation: "optional",
+                  children: [
+                    { name: "readonly", parentRelation: "optional" },
+                    { name: "abstract", parentRelation: "optional" },
+                    { name: "static", parentRelation: "optional" },
+                    { name: "declare", parentRelation: "optional" },
+                    {
+                      name: "accessibilityModifiers",
+                      childrenRelation: "xor",
+                      parentRelation: "optional",
+                      children: [
+                        { name: "private" },
+                        { name: "public" },
+                        { name: "protected" },
+                      ],
+                    },
+                  ],
+                },
+                { name: "name", parentRelation: "mandatory" },
+                { name: "type", parentRelation: "mandatory" },
+              ],
+            },
+            {
+              name: "MethodDeclaration",
+              children: [
+                {
+                  name: "modifiers",
+                  parentRelation: "optional",
+                  childrenRelation: "or",
+                  children: [
+                    { name: "abstract" },
+                    { name: "static" },
+                    { name: "async" },
+                    {
+                      name: "accessibilityModifiers",
+                      childrenRelation: "xor",
+                      parentRelation: "optional",
+                      children: [
+                        { name: "private" },
+                        { name: "public" },
+                        { name: "protected" },
+                      ],
+                    },
+                  ],
+                },
+                { name: "name", parentRelation: "mandatory" },
+                {
+                  name: "parameters",
+                  parentRelation: "mandatory",
+                  children: [
+                    {
+                      name: "Parameter*",
+                      children: [
+                        { name: "name", parentRelation: "mandatory" },
+                        { name: "type", parentRelation: "optional" },
+                        {
+                          name: "extraOperator",
+                          parentRelation: "optional",
+                          childrenRelation: "xor",
+                          children: [
+                            { name: "dotDotDotToken" },
+                            { name: "questionToken" },
+                            {
+                              name: "initializer",
+                              children: [{ name: "Expression" }],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+                { name: "returnType", parentRelation: "mandatory" },
+              ],
+            },
           ],
         },
       ],
