@@ -12,8 +12,17 @@ export const InterfaceDeclaration: FeatureModel = {
           name: "ExportKeyword",
           children: [
             {
-              name: "DefaultKeyword",
+              name: "additionalKeyword",
               parentRelation: "optional",
+              childrenRelation: "xor",
+              children: [
+                {
+                  name: "DefaultKeyword",
+                },
+                {
+                  name: "DeclareKeyword",
+                },
+              ],
             },
           ],
         },
@@ -22,21 +31,39 @@ export const InterfaceDeclaration: FeatureModel = {
         },
       ],
     },
-    { name: "name", parentRelation: "mandatory" },
+    {
+      name: "name",
+      parentRelation: "mandatory",
+    },
+    {
+      name: "typeParameters",
+      parentRelation: "optional",
+      children: [
+        {
+          name: "type*",
+          parentRelation: "mandatory",
+        },
+      ],
+    },
     {
       name: "heritageClauses",
       parentRelation: "optional",
       children: [
         {
           name: "heritageClause*",
+          parentRelation: "mandatory",
           children: [
             {
               name: "token",
-              childrenRelation: "xor",
               parentRelation: "mandatory",
+              childrenRelation: "xor",
               children: [
-                { name: "ExtendsKeyword" },
-                { name: "ImplementsKeyword" },
+                {
+                  name: "ExtendsKeyword",
+                },
+                {
+                  name: "ImplementsKeyword",
+                },
               ],
             },
             {
@@ -44,8 +71,8 @@ export const InterfaceDeclaration: FeatureModel = {
               parentRelation: "mandatory",
               children: [
                 {
-                  name: "type*",
-                  children: [{ name: "ExpressionWithTypeArguments" }],
+                  name: "Type*",
+                  parentRelation: "mandatory",
                 },
               ],
             },
@@ -55,13 +82,23 @@ export const InterfaceDeclaration: FeatureModel = {
     },
     {
       name: "members",
+      parentRelation: "mandatory",
       children: [
         {
           name: "TypeElement*",
           children: [
-            { name: "name", parentRelation: "mandatory" },
-            { name: "questionToken", parentRelation: "optional" },
-            { name: "type", parentRelation: "mandatory" },
+            {
+              name: "name",
+              parentRelation: "mandatory",
+            },
+            {
+              name: "questionToken",
+              parentRelation: "optional",
+            },
+            {
+              name: "type",
+              parentRelation: "mandatory",
+            },
           ],
         },
       ],

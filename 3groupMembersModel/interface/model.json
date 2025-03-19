@@ -16,10 +16,23 @@
           "y": 322,
           "children": [
             {
-              "name": "DefaultKeyword",
+              "name": "additionalKeyword",
               "parentRelation": "optional",
-              "x": 89,
-              "y": 444
+              "childrenRelation": "xor",
+              "children": [
+                {
+                  "name": "DefaultKeyword",
+                  "x": 89,
+                  "y": 540
+                },
+                {
+                  "name": "DeclareKeyword",
+                  "x": 190,
+                  "y": 500
+                }
+              ],
+              "x": 111,
+              "y": 421
             }
           ]
         },
@@ -44,6 +57,7 @@
       "children": [
         {
           "name": "type*",
+          "parentRelation": "mandatory",
           "x": 333,
           "y": 359
         }
@@ -57,6 +71,7 @@
       "children": [
         {
           "name": "heritageClause*",
+          "parentRelation": "mandatory",
           "x": 522,
           "y": 339,
           "children": [
@@ -86,7 +101,8 @@
               "y": 459,
               "children": [
                 {
-                  "name": "ExpressionWithTypeArguments*",
+                  "name": "Type*",
+                  "parentRelation": "mandatory",
                   "x": 540,
                   "y": 637
                 }
