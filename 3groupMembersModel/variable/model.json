@@ -4,16 +4,15 @@
     {
       "name": "modifiers",
       "parentRelation": "optional",
+      "childrenRelation": "or",
       "children": [
         {
           "name": "ExportKeyword",
-          "parentRelation": "optional",
           "x": 74,
           "y": 276
         },
         {
           "name": "DeclareKeyword",
-          "parentRelation": "optional",
           "x": 247,
           "y": 275
         }
@@ -55,6 +54,7 @@
           "children": [
             {
               "name": "VariableDeclaration*",
+              "parentRelation": "mandatory",
               "children": [
                 {
                   "name": "name",
@@ -74,6 +74,7 @@
                   "children": [
                     {
                       "name": "Expression",
+                      "parentRelation": "mandatory",
                       "x": 733,
                       "y": 600
                     }

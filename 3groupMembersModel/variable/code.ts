@@ -6,9 +6,14 @@ export const VariableStatement: FeatureModel = {
     {
       name: "modifiers",
       parentRelation: "optional",
+      childrenRelation: "or",
       children: [
-        { name: "ExportKeyword", parentRelation: "optional" },
-        { name: "DeclareKeyword", parentRelation: "optional" },
+        {
+          name: "ExportKeyword",
+        },
+        {
+          name: "DeclareKeyword",
+        },
       ],
     },
     {
@@ -17,12 +22,18 @@ export const VariableStatement: FeatureModel = {
       children: [
         {
           name: "Declaration",
-          childrenRelation: "xor",
           parentRelation: "mandatory",
+          childrenRelation: "xor",
           children: [
-            { name: "ConstKeyword" },
-            { name: "LetKeyword" },
-            { name: "VarKeyword" },
+            {
+              name: "ConstKeyword",
+            },
+            {
+              name: "LetKeyword",
+            },
+            {
+              name: "VarKeyword",
+            },
           ],
         },
         {
@@ -31,16 +42,25 @@ export const VariableStatement: FeatureModel = {
           children: [
             {
               name: "VariableDeclaration*",
+              parentRelation: "mandatory",
               children: [
                 {
                   name: "name",
                   parentRelation: "mandatory",
                 },
-                { name: "type", parentRelation: "optional" },
+                {
+                  name: "type",
+                  parentRelation: "optional",
+                },
                 {
                   name: "initializer",
                   parentRelation: "optional",
-                  children: [{ name: "Expression" }],
+                  children: [
+                    {
+                      name: "Expression",
+                      parentRelation: "mandatory",
+                    },
+                  ],
                 },
               ],
             },
