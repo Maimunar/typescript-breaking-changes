@@ -30,6 +30,7 @@
           "children": [
             {
               "name": "ExportSpecifier*",
+              "parentRelation": "mandatory",
               "children": [
                 {
                   "name": "name",
@@ -67,6 +68,7 @@
       "children": [
         {
           "name": "StringLiteral",
+          "parentRelation": "mandatory",
           "x": 477,
           "y": 306
         }

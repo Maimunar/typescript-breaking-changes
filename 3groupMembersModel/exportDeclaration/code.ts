@@ -18,6 +18,7 @@ export const ExportDeclaration: FeatureModel = {
           children: [
             {
               name: "ExportSpecifier*",
+              parentRelation: "mandatory",
               children: [
                 { name: "name", parentRelation: "mandatory" },
                 { name: "isTypeOnly", parentRelation: "optional" },
@@ -31,7 +32,7 @@ export const ExportDeclaration: FeatureModel = {
     {
       name: "moduleSpecifier",
       parentRelation: "optional",
-      children: [{ name: "StringLiteral" }],
+      children: [{ name: "StringLiteral", parentRelation: "mandatory" }],
     },
   ],
 };
