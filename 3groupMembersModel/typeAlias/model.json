@@ -1,25 +1,26 @@
 {
   "name": "TypeAliasDeclaration",
+  "x": 332,
+  "y": 92,
   "children": [
     {
       "name": "modifiers",
       "parentRelation": "optional",
+      "childrenRelation": "or",
+      "x": 168,
+      "y": 216,
       "children": [
         {
           "name": "ExportKeyword",
-          "parentRelation": "optional",
-          "x": 84,
-          "y": 282
+          "x": 83,
+          "y": 297
         },
         {
           "name": "DeclareKeyword",
-          "parentRelation": "optional",
-          "x": 253,
-          "y": 282
+          "x": 261,
+          "y": 295
         }
-      ],
-      "x": 168,
-      "y": 216
+      ]
     },
     {
       "name": "name",
@@ -33,7 +34,5 @@
       "x": 510,
       "y": 221
     }
-  ],
-  "x": 332,
-  "y": 92
+  ]
 }

@@ -6,15 +6,23 @@ export const TypeAliasDeclaration: FeatureModel = {
     {
       name: "modifiers",
       parentRelation: "optional",
+      childrenRelation: "or",
       children: [
-        { name: "ExportKeyword", parentRelation: "optional" },
-        { name: "DeclareKeyword", parentRelation: "optional" },
+        {
+          name: "ExportKeyword",
+        },
+        {
+          name: "DeclareKeyword",
+        },
       ],
     },
     {
       name: "name",
       parentRelation: "mandatory",
     },
-    { name: "type", parentRelation: "mandatory" },
+    {
+      name: "type",
+      parentRelation: "mandatory",
+    },
   ],
 };
