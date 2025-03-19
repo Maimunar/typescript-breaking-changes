@@ -22,6 +22,7 @@ export const FunctionDeclaration: FeatureModel = {
       children: [
         {
           name: "Parameter*",
+          parentRelation: "mandatory",
           children: [
             { name: "name", parentRelation: "mandatory" },
             { name: "type", parentRelation: "optional" },
@@ -34,7 +35,9 @@ export const FunctionDeclaration: FeatureModel = {
                 { name: "questionToken" },
                 {
                   name: "initializer",
-                  children: [{ name: "Expression" }],
+                  children: [
+                    { name: "Expression", parentRelation: "mandatory" },
+                  ],
                 },
               ],
             },

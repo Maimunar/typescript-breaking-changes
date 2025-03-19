@@ -44,6 +44,7 @@
       "children": [
         {
           "name": "Parameter*",
+          "parentRelation": "mandatory",
           "x": 397,
           "y": 330,
           "children": [
@@ -67,6 +68,7 @@
                   "children": [
                     {
                       "name": "Expression",
+                      "parentRelation": "mandatory",
                       "x": 389,
                       "y": 665
                     }
