@@ -49,6 +49,7 @@
       "children": [
         {
           "name": "heritageClause*",
+          "parentRelation": "mandatory",
           "x": 384,
           "y": 233,
           "children": [
@@ -79,6 +80,7 @@
               "children": [
                 {
                   "name": "type*",
+                  "parentRelation": "mandatory",
                   "children": [
                     {
                       "name": "ExpressionWithTypeArguments",
@@ -103,6 +105,7 @@
       "children": [
         {
           "name": "ClassElement*",
+          "parentRelation": "mandatory",
           "childrenRelation": "xor",
           "x": 1016,
           "y": 243,
@@ -161,6 +164,7 @@
                   "children": [
                     {
                       "name": "returnType",
+                      "parentRelation": "mandatory",
                       "x": 1037,
                       "y": 1073
                     }
@@ -237,6 +241,7 @@
                   "children": [
                     {
                       "name": "Parameter*",
+                      "parentRelation": "mandatory",
                       "x": 844,
                       "y": 655,
                       "children": [
@@ -271,6 +276,7 @@
                   "children": [
                     {
                       "name": "Parameter*",
+                      "parentRelation": "mandatory",
                       "children": [
                         {
                           "name": "name",
@@ -308,6 +314,7 @@
                               "children": [
                                 {
                                   "name": "Expression",
+                                  "parentRelation": "mandatory",
                                   "x": 106,
                                   "y": 887
                                 }
@@ -315,7 +322,9 @@
                             }
                           ]
                         }
-                      ]
+                      ],
+                      "x": 90,
+                      "y": 670
                     }
                   ],
                   "x": 88,
@@ -337,34 +346,30 @@
                 {
                   "name": "modifiers",
                   "parentRelation": "optional",
+                  "childrenRelation": "or",
                   "children": [
                     {
                       "name": "readonly",
-                      "parentRelation": "optional",
                       "x": 329,
                       "y": 1073
                     },
                     {
                       "name": "abstract",
-                      "parentRelation": "optional",
                       "x": 248,
                       "y": 1117
                     },
                     {
                       "name": "static",
-                      "parentRelation": "optional",
                       "x": 176,
                       "y": 1074
                     },
                     {
                       "name": "declare",
-                      "parentRelation": "optional",
                       "x": 130,
                       "y": 1026
                     },
                     {
                       "name": "accessibilityModifiers",
-                      "parentRelation": "optional",
                       "childrenRelation": "xor",
                       "x": 442,
                       "y": 1011,
@@ -431,7 +436,6 @@
                     },
                     {
                       "name": "accessibilityModifiers",
-                      "parentRelation": "optional",
                       "childrenRelation": "xor",
                       "children": [
                         {
@@ -469,6 +473,7 @@
                   "children": [
                     {
                       "name": "Parameter*",
+                      "parentRelation": "mandatory",
                       "x": 1268,
                       "y": 548,
                       "children": [
@@ -504,6 +509,7 @@
                               "children": [
                                 {
                                   "name": "Expression",
+                                  "parentRelation": "mandatory",
                                   "x": 1342,
                                   "y": 857
                                 }
