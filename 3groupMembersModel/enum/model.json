@@ -29,6 +29,7 @@
           "children": [
             {
               "name": "ConstKeyword",
+              "parentRelation": "mandatory",
               "x": 375,
               "y": 390
             }

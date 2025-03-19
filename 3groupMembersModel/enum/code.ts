@@ -16,7 +16,7 @@ export const EnumDeclaration: FeatureModel = {
         },
         {
           name: "Declaration",
-          children: [{ name: "ConstKeyword" }],
+          children: [{ name: "ConstKeyword", parentRelation: "mandatory" }],
           parentRelation: "optional",
         },
       ],
