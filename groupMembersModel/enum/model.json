@@ -6,24 +6,22 @@
     {
       "name": "modifiers",
       "parentRelation": "optional",
+      "childrenRelation": "or",
       "x": 271,
       "y": 193,
       "children": [
         {
           "name": "ExportKeyword",
-          "parentRelation": "optional",
           "x": 103,
           "y": 287
         },
         {
           "name": "DeclareKeyword",
-          "parentRelation": "optional",
           "x": 226,
           "y": 336
         },
         {
           "name": "Declaration",
-          "parentRelation": "optional",
           "x": 370,
           "y": 287,
           "children": [
