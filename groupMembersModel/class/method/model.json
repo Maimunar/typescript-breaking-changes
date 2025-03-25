@@ -1,0 +1,126 @@
+{
+  "name": "MethodDeclaration",
+  "x": 378,
+  "y": 95,
+  "children": [
+    {
+      "name": "modifiers",
+      "parentRelation": "optional",
+      "childrenRelation": "or",
+      "x": 170,
+      "y": 228,
+      "children": [
+        {
+          "name": "abstract",
+          "x": 63,
+          "y": 330
+        },
+        {
+          "name": "static",
+          "x": 108,
+          "y": 384
+        },
+        {
+          "name": "async",
+          "x": 284,
+          "y": 330
+        },
+        {
+          "name": "accessibilityModifiers",
+          "childrenRelation": "xor",
+          "x": 190,
+          "y": 436,
+          "children": [
+            {
+              "name": "private",
+              "x": 96,
+              "y": 540
+            },
+            {
+              "name": "public",
+              "x": 159,
+              "y": 586
+            },
+            {
+              "name": "protected",
+              "x": 240,
+              "y": 542
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "parentRelation": "mandatory",
+      "x": 337,
+      "y": 227
+    },
+    {
+      "name": "parameters",
+      "parentRelation": "mandatory",
+      "x": 486,
+      "y": 225,
+      "children": [
+        {
+          "name": "Parameter*",
+          "parentRelation": "mandatory",
+          "x": 488,
+          "y": 336,
+          "children": [
+            {
+              "name": "name",
+              "x": 400,
+              "y": 440,
+              "parentRelation": "mandatory"
+            },
+            {
+              "name": "type",
+              "parentRelation": "optional",
+              "x": 486,
+              "y": 440
+            },
+            {
+              "name": "extraOperator",
+              "parentRelation": "optional",
+              "childrenRelation": "xor",
+              "x": 607,
+              "y": 440,
+              "children": [
+                {
+                  "name": "dotDotDotToken",
+                  "x": 430,
+                  "y": 529
+                },
+                {
+                  "name": "questionToken",
+                  "x": 547,
+                  "y": 585
+                },
+                {
+                  "name": "initializer",
+                  "x": 683,
+                  "y": 538,
+                  "children": [
+                    {
+                      "name": "Expression",
+                      "parentRelation": "mandatory",
+                      "x": 685,
+                      "y": 629
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "returnType",
+      "parentRelation": "mandatory",
+      "x": 668,
+      "y": 219
+    }
+  ]
+}

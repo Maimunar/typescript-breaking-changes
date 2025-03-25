@@ -1,0 +1,64 @@
+{
+  "name": "GetAccessor",
+  "children": [
+    {
+      "name": "modifiers",
+      "parentRelation": "optional",
+      "childrenRelation": "or",
+      "children": [
+        {
+          "name": "static",
+          "x": 51,
+          "y": 333
+        },
+        {
+          "name": "accessibilityModifiers",
+          "childrenRelation": "xor",
+          "children": [
+            {
+              "name": "private",
+              "x": 80,
+              "y": 437
+            },
+            {
+              "name": "public",
+              "x": 202,
+              "y": 440
+            },
+            {
+              "name": "protected",
+              "x": 320,
+              "y": 432
+            }
+          ],
+          "x": 227,
+          "y": 336
+        }
+      ],
+      "x": 142,
+      "y": 225
+    },
+    {
+      "name": "name",
+      "parentRelation": "mandatory",
+      "x": 263,
+      "y": 226
+    },
+    {
+      "name": "type",
+      "parentRelation": "optional",
+      "children": [
+        {
+          "name": "returnType",
+          "parentRelation": "mandatory",
+          "x": 393,
+          "y": 295
+        }
+      ],
+      "x": 392,
+      "y": 221
+    }
+  ],
+  "x": 303,
+  "y": 97
+}

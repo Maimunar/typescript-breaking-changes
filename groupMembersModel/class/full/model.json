@@ -57,8 +57,6 @@
               "name": "token",
               "parentRelation": "mandatory",
               "childrenRelation": "xor",
-              "x": 322,
-              "y": 305,
               "children": [
                 {
                   "name": "ExtendsKeyword",
@@ -70,7 +68,9 @@
                   "x": 347,
                   "y": 407
                 }
-              ]
+              ],
+              "x": 322,
+              "y": 305
             },
             {
               "name": "types",
@@ -81,15 +81,15 @@
                 {
                   "name": "type*",
                   "parentRelation": "mandatory",
-                  "x": 482,
-                  "y": 367,
                   "children": [
                     {
                       "name": "ExpressionWithTypeArguments",
                       "x": 487,
                       "y": 457
                     }
-                  ]
+                  ],
+                  "x": 482,
+                  "y": 367
                 }
               ]
             }
@@ -100,40 +100,40 @@
     {
       "name": "members",
       "parentRelation": "optional",
-      "x": 861,
-      "y": 168,
+      "x": 1016,
+      "y": 171,
       "children": [
         {
           "name": "ClassElement*",
           "parentRelation": "mandatory",
           "childrenRelation": "xor",
-          "x": 864,
-          "y": 241,
+          "x": 1016,
+          "y": 243,
           "children": [
             {
               "name": "GetAccessor",
-              "x": 990,
-              "y": 414
+              "x": 899,
+              "y": 882
             },
             {
               "name": "SetAccessorDeclaration",
-              "x": 863,
-              "y": 360
+              "x": 750,
+              "y": 398
             },
             {
               "name": "ConstructorDeclaration",
-              "x": 676,
-              "y": 313
+              "x": 188,
+              "y": 507
             },
             {
               "name": "PropertyDeclaration",
-              "x": 772,
-              "y": 410
+              "x": 498,
+              "y": 838
             },
             {
               "name": "MethodDeclaration",
-              "x": 1097,
-              "y": 356
+              "x": 1263,
+              "y": 343
             }
           ]
         }

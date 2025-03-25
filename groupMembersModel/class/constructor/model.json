@@ -1,0 +1,73 @@
+{
+  "name": "ConstructorDeclaration",
+  "x": 340,
+  "y": 105,
+  "children": [
+    {
+      "name": "parameters",
+      "parentRelation": "mandatory",
+      "x": 204,
+      "y": 219,
+      "children": [
+        {
+          "name": "Parameter*",
+          "parentRelation": "mandatory",
+          "x": 196,
+          "y": 314,
+          "children": [
+            {
+              "name": "name",
+              "parentRelation": "mandatory",
+              "x": 47,
+              "y": 398
+            },
+            {
+              "name": "type",
+              "parentRelation": "optional",
+              "x": 156,
+              "y": 403
+            },
+            {
+              "name": "extraOperator",
+              "parentRelation": "optional",
+              "childrenRelation": "xor",
+              "x": 317,
+              "y": 417,
+              "children": [
+                {
+                  "name": "dotDotDotToken",
+                  "x": 112,
+                  "y": 534
+                },
+                {
+                  "name": "questionToken",
+                  "x": 287,
+                  "y": 534
+                },
+                {
+                  "name": "initializer",
+                  "x": 446,
+                  "y": 533,
+                  "children": [
+                    {
+                      "name": "Expression",
+                      "parentRelation": "mandatory",
+                      "x": 446,
+                      "y": 609
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "returnType",
+      "parentRelation": "mandatory",
+      "x": 455,
+      "y": 220
+    }
+  ]
+}

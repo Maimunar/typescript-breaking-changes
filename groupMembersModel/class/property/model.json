@@ -1,0 +1,71 @@
+{
+  "name": "PropertyDeclaration",
+  "x": 380,
+  "y": 87,
+  "children": [
+    {
+      "name": "modifiers",
+      "parentRelation": "optional",
+      "childrenRelation": "or",
+      "x": 229,
+      "y": 217,
+      "children": [
+        {
+          "name": "readonly",
+          "x": 56,
+          "y": 320
+        },
+        {
+          "name": "abstract",
+          "x": 122,
+          "y": 371
+        },
+        {
+          "name": "static",
+          "x": 221,
+          "y": 337
+        },
+        {
+          "name": "declare",
+          "x": 318,
+          "y": 358
+        },
+        {
+          "name": "accessibilityModifiers",
+          "childrenRelation": "xor",
+          "x": 484,
+          "y": 316,
+          "children": [
+            {
+              "name": "private",
+              "x": 337,
+              "y": 438
+            },
+            {
+              "name": "public",
+              "x": 461,
+              "y": 447
+            },
+            {
+              "name": "protected",
+              "x": 612,
+              "y": 425
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "parentRelation": "mandatory",
+      "x": 361,
+      "y": 223
+    },
+    {
+      "name": "type",
+      "parentRelation": "mandatory",
+      "x": 513,
+      "y": 218
+    }
+  ]
+}

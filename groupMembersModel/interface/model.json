@@ -50,20 +50,6 @@
       "y": 270
     },
     {
-      "name": "typeParameters",
-      "parentRelation": "optional",
-      "x": 326,
-      "y": 217,
-      "children": [
-        {
-          "name": "type*",
-          "parentRelation": "mandatory",
-          "x": 333,
-          "y": 359
-        }
-      ]
-    },
-    {
       "name": "heritageClauses",
       "parentRelation": "optional",
       "x": 538,
@@ -78,19 +64,14 @@
             {
               "name": "token",
               "parentRelation": "mandatory",
-              "childrenRelation": "xor",
               "x": 377,
               "y": 448,
               "children": [
                 {
                   "name": "ExtendsKeyword",
-                  "x": 224,
+                  "parentRelation": "mandatory",
+                  "x": 274,
                   "y": 573
-                },
-                {
-                  "name": "ImplementsKeyword",
-                  "x": 412,
-                  "y": 559
                 }
               ]
             },
