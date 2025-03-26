@@ -34,7 +34,7 @@ export const EnumDeclaration: FeatureModel = {
               childrenRelation: "xor",
               children: [
                 {
-                  name: "type",
+                  name: "Type",
                   children: [{ name: "string" }, { name: "number" }],
                   childrenRelation: "xor",
                 },
