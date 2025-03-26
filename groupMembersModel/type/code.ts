@@ -20,13 +20,9 @@ export const Type: FeatureModel = {
         {
           name: "returnType",
           parentRelation: "mandatory",
-          childrenRelation: "xor",
           children: [
             {
               name: "Type",
-            },
-            {
-              name: "TypePredicate",
             },
           ],
         },
@@ -97,6 +93,10 @@ export const Type: FeatureModel = {
               ],
             },
             {
+              name: "questionToken",
+              parentRelation: "optional",
+            },
+            {
               name: "Type",
               parentRelation: "mandatory",
             },
@@ -110,6 +110,24 @@ export const Type: FeatureModel = {
         {
           name: "Type",
           parentRelation: "mandatory",
+        },
+      ],
+    },
+    {
+      name: "ParenthesizedType",
+      children: [
+        {
+          name: "Type",
+          parentRelation: "mandatory",
+        },
+      ],
+    },
+    {
+      name: "TypeReference",
+      children: [
+        {
+          name: "Type",
+          parentRelation: "optional",
         },
       ],
     },
@@ -130,7 +148,7 @@ export const Type: FeatureModel = {
           parentRelation: "mandatory",
         },
         {
-          name: "secondType",
+          name: "Type",
           parentRelation: "mandatory",
         },
       ],
@@ -143,7 +161,7 @@ export const Type: FeatureModel = {
           parentRelation: "mandatory",
         },
         {
-          name: "secondType",
+          name: "Type",
           parentRelation: "mandatory",
         },
       ],

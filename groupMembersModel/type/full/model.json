@@ -145,6 +145,10 @@
                   ]
                 },
                 {
+                  "name": "questionToken",
+                  "parentRelation": "optional"
+                },
+                {
                   "name": "BuildType",
                   "parentRelation": "mandatory",
                   "x": 730,
@@ -164,6 +168,24 @@
               "parentRelation": "mandatory",
               "x": 370,
               "y": 350
+            }
+          ]
+        },
+        {
+          "name": "ParenthesizedType",
+          "children": [
+            {
+              "name": "BuildType",
+              "parentRelation": "mandatory"
+            }
+          ]
+        },
+        {
+          "name": "TypeReference",
+          "children": [
+            {
+              "name": "BuildType",
+              "parentRelation": "optional"
             }
           ]
         },

@@ -16,29 +16,23 @@
           "y": 444,
           "children": [
             {
-              "parentRelation": "mandatory",
               "name": "Type*",
-              "x": 122,
-              "y": 519
+              "parentRelation": "mandatory",
+              "x": 127,
+              "y": 494
             }
           ]
         },
         {
           "name": "returnType",
           "parentRelation": "mandatory",
-          "childrenRelation": "xor",
           "x": 205,
           "y": 590,
           "children": [
             {
               "name": "Type",
-              "x": 250,
-              "y": 760
-            },
-            {
-              "name": "TypePredicate",
-              "x": 176,
-              "y": 706
+              "x": 204,
+              "y": 685
             }
           ]
         }
@@ -69,6 +63,8 @@
                 },
                 {
                   "name": "IndexSignature",
+                  "x": 445,
+                  "y": 796,
                   "children": [
                     {
                       "name": "keyName",
@@ -80,6 +76,8 @@
                       "name": "keyType",
                       "parentRelation": "mandatory",
                       "childrenRelation": "xor",
+                      "x": 497,
+                      "y": 877,
                       "children": [
                         {
                           "name": "string",
@@ -101,16 +99,14 @@
                           "x": 402,
                           "y": 1040
                         }
-                      ],
-                      "x": 497,
-                      "y": 877
+                      ]
                     }
-                  ],
-                  "x": 445,
-                  "y": 796
+                  ]
                 },
                 {
                   "name": "MappedType",
+                  "x": 683,
+                  "y": 600,
                   "children": [
                     {
                       "name": "Property",
@@ -127,16 +123,20 @@
                         {
                           "name": "Type",
                           "parentRelation": "mandatory",
-                          "x": 640,
-                          "y": 790
+                          "x": 790,
+                          "y": 471
                         }
                       ]
                     }
-                  ],
-                  "x": 683,
-                  "y": 600
+                  ]
                 }
               ]
+            },
+            {
+              "name": "questionToken",
+              "parentRelation": "optional",
+              "x": 735,
+              "y": 527
             },
             {
               "name": "Type",
@@ -162,6 +162,30 @@
       ]
     },
     {
+      "name": "ParenthesizedType",
+      "children": [
+        {
+          "name": "Type",
+          "parentRelation": "mandatory"
+        }
+      ],
+      "x": 119,
+      "y": 161
+    },
+    {
+      "name": "TypeReference",
+      "children": [
+        {
+          "name": "Type",
+          "parentRelation": "optional",
+          "x": 312,
+          "y": 246
+        }
+      ],
+      "x": 311,
+      "y": 175
+    },
+    {
       "name": "TupleType",
       "x": 517,
       "y": 285,
@@ -181,9 +205,9 @@
       "children": [
         {
           "name": "Type",
+          "parentRelation": "mandatory",
           "x": 780,
-          "y": 330,
-          "parentRelation": "mandatory"
+          "y": 330
         },
         {
           "name": "secondType",
@@ -200,15 +224,15 @@
       "children": [
         {
           "name": "Type",
+          "parentRelation": "mandatory",
           "x": 500,
-          "y": 540,
-          "parentRelation": "mandatory"
+          "y": 540
         },
         {
           "name": "secondType",
+          "parentRelation": "mandatory",
           "x": 350,
-          "y": 540,
-          "parentRelation": "mandatory"
+          "y": 540
         }
       ]
     },

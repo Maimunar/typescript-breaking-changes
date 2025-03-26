@@ -101,6 +101,10 @@ export const Type: FeatureModel = {
                   ],
                 },
                 {
+                  name: "questionToken",
+                  parentRelation: "optional",
+                },
+                {
                   name: "BuildType",
                   parentRelation: "mandatory",
                 },
@@ -114,6 +118,24 @@ export const Type: FeatureModel = {
             {
               name: "BuildType",
               parentRelation: "mandatory",
+            },
+          ],
+        },
+        {
+          name: "ParenthesizedType",
+          children: [
+            {
+              name: "BuildType",
+              parentRelation: "mandatory",
+            },
+          ],
+        },
+        {
+          name: "TypeReference",
+          children: [
+            {
+              name: "BuildType",
+              parentRelation: "optional",
             },
           ],
         },
