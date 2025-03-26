@@ -10,9 +10,10 @@
 6. Type
 7. TypeAlias = 20
 8. Variable = 132
-9. Class
-   a. Method
-   b. Property
-   c. Constructor
-   d. Getter
-   e. Setter
+9. Class = 71585
+   a. Method = 20724
+   b. Property = 48384
+   c. Constructor = 672
+   d. Getter = 864
+   e. Setter = 1056
+   f. Class Itself = 885

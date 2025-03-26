@@ -65,12 +65,12 @@ Modifiers = 12 states
 
 1. Constructor - 672 tests
 2. Getter - 864 tests
-3. Method
-4. Property
-5. Setter
+3. Method - 20724 tests
+4. Property - 48384 tests
+5. Setter - 1056 tests
 
 ## Total
 
 In total we have:
 Class Itself: 396 (modifiers) + 48 (heritage) + 72 (name) + 360 (members) = 885 tests
-Class + Members: 885
+Class + Members: 885 + 672 + 864 + 20724 + 48384 + 1056 = 71585 tests
