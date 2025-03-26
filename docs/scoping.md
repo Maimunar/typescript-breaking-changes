@@ -8,6 +8,7 @@ I will also describe any findings.
 - I am not considering Decorators at all
 - Whenever the children relation in a feature model is "and", the elements are ordered, the order is not arbitrary
   - Check if thats always the case
+  - We are not handlingg module and namespace declarations because their usage is adviced against in eslint
 
 ### Findings
 
