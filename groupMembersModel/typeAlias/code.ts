@@ -21,7 +21,7 @@ export const TypeAliasDeclaration: FeatureModel = {
       parentRelation: "mandatory",
     },
     {
-      name: "type",
+      name: "Type",
       parentRelation: "mandatory",
     },
   ],
