@@ -87,8 +87,8 @@
               "y": 425
             },
             {
-              "name": "type",
-              "parentRelation": "optional",
+              "name": "Type",
+              "parentRelation": "mandatory",
               "x": 512,
               "y": 440
             }
@@ -97,7 +97,7 @@
       ]
     },
     {
-      "name": "type",
+      "name": "Type",
       "parentRelation": "mandatory",
       "x": 580,
       "y": 220,
