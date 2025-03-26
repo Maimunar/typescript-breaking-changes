@@ -1,82 +1,102 @@
 {
   "name": "ExportDeclaration",
+  "x": 411,
+  "y": 93,
   "children": [
     {
-      "name": "isTypeOnly",
+      "name": "modifiers",
       "parentRelation": "optional",
-      "x": 107,
-      "y": 212
+      "x": 146,
+      "y": 219,
+      "children": [
+        {
+          "name": "isTypeOnly",
+          "parentRelation": "mandatory",
+          "x": 132,
+          "y": 308
+        }
+      ]
     },
     {
       "name": "exportClause",
       "parentRelation": "mandatory",
       "childrenRelation": "xor",
+      "x": 434,
+      "y": 200,
       "children": [
         {
           "name": "NamespaceExport",
+          "x": 305,
+          "y": 317,
           "children": [
             {
               "name": "name",
-              "parentRelation": "mandatory",
-              "x": 124,
-              "y": 429
+              "parentRelation": "optional",
+              "x": 304,
+              "y": 435
             }
-          ],
-          "x": 126,
-          "y": 334
+          ]
         },
         {
           "name": "NamedExports",
+          "x": 503,
+          "y": 327,
           "children": [
             {
               "name": "ExportSpecifier*",
               "parentRelation": "mandatory",
+              "x": 498,
+              "y": 431,
               "children": [
                 {
                   "name": "name",
                   "parentRelation": "mandatory",
-                  "x": 161,
-                  "y": 548
+                  "x": 485,
+                  "y": 566
                 },
                 {
                   "name": "isTypeOnly",
                   "parentRelation": "optional",
-                  "x": 291,
-                  "y": 548
+                  "x": 357,
+                  "y": 560
                 },
                 {
                   "name": "propertyName",
                   "parentRelation": "optional",
-                  "x": 441,
-                  "y": 548
+                  "x": 686,
+                  "y": 582
                 }
-              ],
-              "x": 308,
-              "y": 435
+              ]
             }
-          ],
-          "x": 310,
-          "y": 333
+          ]
         }
-      ],
-      "x": 265,
-      "y": 212
+      ]
     },
     {
       "name": "moduleSpecifier",
       "parentRelation": "optional",
+      "x": 715,
+      "y": 192,
       "children": [
         {
           "name": "StringLiteral",
           "parentRelation": "mandatory",
-          "x": 477,
-          "y": 306
+          "x": 716,
+          "y": 296
         }
-      ],
-      "x": 479,
-      "y": 217
+      ]
     }
   ],
-  "x": 266,
-  "y": 102
+  "requires": [
+    [
+      "ExportDeclaration.exportClause.NamespaceExport",
+      "ExportDeclaration.moduleSpecifier"
+    ]
+  ],
+  "excludes": [
+    [
+      "ExportDeclaration.isTypeOnly",
+      "ExportDeclaration.exportClause.NamedExports.ExportSpecifier*.isTypeOnly"
+    ]
+  ]
 }

@@ -3,7 +3,11 @@ import { FeatureModel } from "../../model";
 export const ExportDeclaration: FeatureModel = {
   name: "ExportDeclaration",
   children: [
-    { name: "isTypeOnly", parentRelation: "optional" },
+    {
+      name: "modifiers",
+      parentRelation: "optional",
+      children: [{ name: "isTypeOnly", parentRelation: "mandatory" }],
+    },
     {
       name: "exportClause",
       childrenRelation: "xor",
@@ -11,7 +15,7 @@ export const ExportDeclaration: FeatureModel = {
       children: [
         {
           name: "NamespaceExport",
-          children: [{ name: "name", parentRelation: "mandatory" }],
+          children: [{ name: "name", parentRelation: "optional" }],
         },
         {
           name: "NamedExports",
@@ -34,5 +38,17 @@ export const ExportDeclaration: FeatureModel = {
       parentRelation: "optional",
       children: [{ name: "StringLiteral", parentRelation: "mandatory" }],
     },
+  ],
+  excludes: [
+    [
+      "ExportDeclaration.isTypeOnly",
+      "ExportDeclaration.exportClause.NamedExports.ExportSpecifier*.isTypeOnly",
+    ],
+  ],
+  requires: [
+    [
+      "ExportDeclaration.exportClause.NamespaceExport",
+      "ExportDeclaration.moduleSpecifier",
+    ],
   ],
 };
