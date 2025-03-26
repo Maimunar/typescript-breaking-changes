@@ -83,7 +83,7 @@
                   "parentRelation": "mandatory",
                   "children": [
                     {
-                      "name": "ExpressionWithTypeArguments",
+                      "name": "Expression",
                       "x": 487,
                       "y": 457
                     }

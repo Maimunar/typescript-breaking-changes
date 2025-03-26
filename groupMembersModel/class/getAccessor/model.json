@@ -45,8 +45,8 @@
       "y": 226
     },
     {
-      "name": "type",
-      "parentRelation": "optional",
+      "name": "Type",
+      "parentRelation": "mandatory",
       "children": [
         {
           "name": "returnType",

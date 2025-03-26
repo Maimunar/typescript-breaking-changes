@@ -59,7 +59,7 @@ export const ClassDeclaration: FeatureModel = {
                   parentRelation: "mandatory",
                   children: [
                     {
-                      name: "ExpressionWithTypeArguments",
+                      name: "Expression",
                     },
                   ],
                 },

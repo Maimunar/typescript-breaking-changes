@@ -22,8 +22,8 @@
               "y": 398
             },
             {
-              "name": "type",
-              "parentRelation": "optional",
+              "name": "Type",
+              "parentRelation": "mandatory",
               "x": 156,
               "y": 403
             },

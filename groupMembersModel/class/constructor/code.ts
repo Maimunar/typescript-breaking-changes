@@ -16,8 +16,8 @@ export const ConstructorDeclaration: FeatureModel = {
               parentRelation: "mandatory",
             },
             {
-              name: "type",
-              parentRelation: "optional",
+              name: "Type",
+              parentRelation: "mandatory",
             },
             {
               name: "extraOperator",

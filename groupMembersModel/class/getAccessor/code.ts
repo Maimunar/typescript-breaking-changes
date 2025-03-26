@@ -33,8 +33,8 @@ export const GetAccessorDeclaration: FeatureModel = {
       parentRelation: "mandatory",
     },
     {
-      name: "type",
-      parentRelation: "optional",
+      name: "Type",
+      parentRelation: "mandatory",
       children: [
         {
           name: "returnType",

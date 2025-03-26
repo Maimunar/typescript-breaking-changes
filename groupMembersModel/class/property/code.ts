@@ -42,7 +42,7 @@ export const PropertyDeclaration: FeatureModel = {
       parentRelation: "mandatory",
     },
     {
-      name: "type",
+      name: "Type",
       parentRelation: "mandatory",
     },
   ],
