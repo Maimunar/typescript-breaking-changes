@@ -6,23 +6,14 @@ export const InterfaceDeclaration: FeatureModel = {
     {
       name: "modifiers",
       parentRelation: "optional",
-      childrenRelation: "xor",
+      childrenRelation: "or",
       children: [
         {
           name: "ExportKeyword",
           children: [
             {
-              name: "additionalKeyword",
               parentRelation: "optional",
-              childrenRelation: "xor",
-              children: [
-                {
-                  name: "DefaultKeyword",
-                },
-                {
-                  name: "DeclareKeyword",
-                },
-              ],
+              name: "DefaultKeyword",
             },
           ],
         },
@@ -43,16 +34,6 @@ export const InterfaceDeclaration: FeatureModel = {
           name: "heritageClause*",
           parentRelation: "mandatory",
           children: [
-            {
-              name: "token",
-              parentRelation: "mandatory",
-              children: [
-                {
-                  name: "ExtendsKeyword",
-                  parentRelation: "mandatory",
-                },
-              ],
-            },
             {
               name: "types",
               parentRelation: "mandatory",
@@ -83,12 +64,18 @@ export const InterfaceDeclaration: FeatureModel = {
               parentRelation: "optional",
             },
             {
-              name: "type",
+              name: "Type",
               parentRelation: "mandatory",
             },
           ],
         },
       ],
     },
+  ],
+  excludes: [
+    [
+      "InterfaceDeclaration.modifiers.ExportKeyword.DefaultKeyword",
+      "InterfaceDeclaration.modifiers.DeclareKeyword",
+    ],
   ],
 };

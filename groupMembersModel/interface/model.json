@@ -6,7 +6,7 @@
     {
       "name": "modifiers",
       "parentRelation": "optional",
-      "childrenRelation": "xor",
+      "childrenRelation": "or",
       "x": 97,
       "y": 223,
       "children": [
@@ -16,29 +16,16 @@
           "y": 322,
           "children": [
             {
-              "name": "additionalKeyword",
+              "name": "DefaultKeyword",
               "parentRelation": "optional",
-              "childrenRelation": "xor",
-              "children": [
-                {
-                  "name": "DefaultKeyword",
-                  "x": 89,
-                  "y": 540
-                },
-                {
-                  "name": "DeclareKeyword",
-                  "x": 190,
-                  "y": 500
-                }
-              ],
-              "x": 111,
-              "y": 421
+              "x": 92,
+              "y": 436
             }
           ]
         },
         {
           "name": "DeclareKeyword",
-          "x": 208,
+          "x": 250,
           "y": 371
         }
       ]
@@ -46,8 +33,8 @@
     {
       "name": "name",
       "parentRelation": "mandatory",
-      "x": 427,
-      "y": 270
+      "x": 353,
+      "y": 269
     },
     {
       "name": "heritageClauses",
@@ -62,20 +49,6 @@
           "y": 339,
           "children": [
             {
-              "name": "token",
-              "parentRelation": "mandatory",
-              "x": 377,
-              "y": 448,
-              "children": [
-                {
-                  "name": "ExtendsKeyword",
-                  "parentRelation": "mandatory",
-                  "x": 274,
-                  "y": 573
-                }
-              ]
-            },
-            {
               "name": "types",
               "parentRelation": "mandatory",
               "x": 521,
@@ -84,8 +57,8 @@
                 {
                   "name": "Type*",
                   "parentRelation": "mandatory",
-                  "x": 540,
-                  "y": 637
+                  "x": 521,
+                  "y": 564
                 }
               ]
             }
@@ -117,7 +90,7 @@
               "y": 503
             },
             {
-              "name": "type",
+              "name": "Type",
               "parentRelation": "mandatory",
               "x": 859,
               "y": 456
@@ -126,5 +99,11 @@
         }
       ]
     }
+  ],
+  "excludes": [
+    [
+      "InterfaceDeclaration.modifiers.ExportKeyword.DefaultKeyword",
+      "InterfaceDeclaration.modifiers.DeclareKeyword"
+    ]
   ]
 }
