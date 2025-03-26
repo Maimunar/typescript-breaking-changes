@@ -63,8 +63,8 @@
                   "y": 519
                 },
                 {
-                  "name": "type",
-                  "parentRelation": "optional",
+                  "name": "Type",
+                  "parentRelation": "mandatory",
                   "x": 602,
                   "y": 519
                 },
@@ -94,6 +94,12 @@
       "x": 498,
       "y": 207
     }
+  ],
+  "requires": [
+    [
+      "VariableStatement.VariableDeclRationList.Declaration.ConstKeyword",
+      "VariableStatement.VariableDeclarationList.declaration.VariableDelcaration*.initializer"
+    ]
   ],
   "x": 399,
   "y": 101

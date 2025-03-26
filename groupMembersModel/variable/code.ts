@@ -49,8 +49,8 @@ export const VariableStatement: FeatureModel = {
                   parentRelation: "mandatory",
                 },
                 {
-                  name: "type",
-                  parentRelation: "optional",
+                  name: "Type",
+                  parentRelation: "mandatory",
                 },
                 {
                   name: "initializer",
@@ -68,5 +68,11 @@ export const VariableStatement: FeatureModel = {
         },
       ],
     },
+  ],
+  requires: [
+    [
+      "VariableStatement.VariableDeclRationList.Declaration.ConstKeyword",
+      "VariableStatement.VariableDeclarationList.declaration.VariableDelcaration*.initializer",
+    ],
   ],
 };
