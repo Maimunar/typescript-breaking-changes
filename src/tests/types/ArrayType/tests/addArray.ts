@@ -29,35 +29,37 @@ const AddArrayTypeToParenthesizedTypeWithAny: ArrayDefaults["ParenthesizedType"]
 
 // TypeReferenceBuiltin
 
+const promisify = <T>(value: T): Promise<T> => Promise.resolve(value);
+
 const TypeReferenceBuiltinWithLiteral: GeneralDefaults["TypeReferenceBuiltin"]["Literal"] =
-  {};
+  promisify(1);
 const AddArrayTypeToTypeReferenceBuiltinWithLiteral: ArrayDefaults["TypeReferenceBuiltin"]["Literal"] =
-  {};
+  promisify(1);
 
 const TypeReferenceBuiltinWithObject: GeneralDefaults["TypeReferenceBuiltin"]["Object"] =
-  {};
+  promisify({});
 const AddArrayTypeToTypeReferenceBuiltinWithObject: ArrayDefaults["TypeReferenceBuiltin"]["Object"] =
-  {};
+  promisify({});
 
 const TypeReferenceBuiltinWithString: GeneralDefaults["TypeReferenceBuiltin"]["String"] =
-  {};
+  promisify("two");
 const AddArrayTypeToTypeReferenceBuiltinWithString: ArrayDefaults["TypeReferenceBuiltin"]["String"] =
-  {};
+  promisify("two");
 
 const TypeReferenceBuiltinWithNumber: GeneralDefaults["TypeReferenceBuiltin"]["Number"] =
-  {};
+  promisify(2);
 const AddArrayTypeToTypeReferenceBuiltinWithNumber: ArrayDefaults["TypeReferenceBuiltin"]["Number"] =
-  {};
+  promisify(2);
 
 const TypeReferenceBuiltinWithBoolean: GeneralDefaults["TypeReferenceBuiltin"]["Boolean"] =
-  {};
+  promisify(true);
 const AddArrayTypeToTypeReferenceBuiltinWithBoolean: ArrayDefaults["TypeReferenceBuiltin"]["Boolean"] =
-  {};
+  promisify(true);
 
 const TypeReferenceBuiltinWithAny: GeneralDefaults["TypeReferenceBuiltin"]["Any"] =
-  {};
+  promisify(2);
 const AddArrayTypeToTypeReferenceBuiltinWithAny: ArrayDefaults["TypeReferenceBuiltin"]["Any"] =
-  {};
+  promisify(2);
 
 // TypeReferencePredefined
 
@@ -232,40 +234,40 @@ const AddArrayTypeToArrayTypeWithAny: ArrayDefaults["ArrayType"]["Any"] = [
 // FunctionType
 
 const FunctionTypeWithLiteral: GeneralDefaults["FunctionType"]["Literal"] = (
-  param,
+  param: 1,
 ) => {};
 const AddArrayTypeToFunctionTypeWithLiteral: ArrayDefaults["FunctionType"]["Literal"] =
-  (param) => {};
+  (param: 1) => {};
 
 const FunctionTypeWithObject: GeneralDefaults["FunctionType"]["Object"] = (
-  param,
+  param: object,
 ) => {};
 const AddArrayTypeToFunctionTypeWithObject: ArrayDefaults["FunctionType"]["Object"] =
-  (param) => {};
+  (param: object) => {};
 
 const FunctionTypeWithString: GeneralDefaults["FunctionType"]["String"] = (
-  param,
+  param: string,
 ) => {};
 const AddArrayTypeToFunctionTypeWithString: ArrayDefaults["FunctionType"]["String"] =
-  (param) => {};
+  (param: string) => {};
 
 const FunctionTypeWithNumber: GeneralDefaults["FunctionType"]["Number"] = (
-  param,
+  param: number,
 ) => {};
 const AddArrayTypeToFunctionTypeWithNumber: ArrayDefaults["FunctionType"]["Number"] =
-  (param) => {};
+  (param: number) => {};
 
 const FunctionTypeWithBoolean: GeneralDefaults["FunctionType"]["Boolean"] = (
-  param,
+  param: boolean,
 ) => {};
 const AddArrayTypeToFunctionTypeWithBoolean: ArrayDefaults["FunctionType"]["Boolean"] =
-  (param) => {};
+  (param: boolean) => {};
 
 const FunctionTypeWithAny: GeneralDefaults["FunctionType"]["Any"] = (
-  param,
+  param: any,
 ) => {};
 const AddArrayTypeToFunctionTypeWithAny: ArrayDefaults["FunctionType"]["Any"] =
-  (param) => {};
+  (param: any) => {};
 
 // ConstructorType
 
