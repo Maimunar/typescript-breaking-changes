@@ -1,5 +1,3 @@
-/* eslint @typescript-eslint/no-explicit-any: 0*/
-
 type TypeKeys = "Literal" | "Object" | "String" | "Number" | "Boolean" | "Any";
 type TypeFrame = { [Property in TypeKeys]: any };
 
