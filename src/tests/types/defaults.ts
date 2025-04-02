@@ -1,193 +1,222 @@
 /* eslint @typescript-eslint/no-explicit-any: 0*/
-interface ConstructorDefaults {
+
+type TypeKeys = "Literal" | "Object" | "String" | "Number" | "Boolean" | "Any";
+type TypeFrame = { [Property in TypeKeys]: any };
+
+export const typeKeys: TypeKeys[] = [
+  "Literal",
+  "Object",
+  "String",
+  "Number",
+  "Boolean",
+  "Any",
+];
+
+interface ConstructorTypes extends TypeFrame {
   Literal: 1;
   Object: object;
   String: string;
   Number: number;
   Boolean: boolean;
-  AnyType: any;
+  Any: any;
 }
-
-const constructorDefaults: ConstructorDefaults = {
-  Literal: 1,
-  Object: {},
-  String: "two",
-  Number: 2,
-  Boolean: true,
-  AnyType: 2,
-};
-
-type ConstructorTypes = {
-  [Property in keyof ConstructorDefaults]: any;
-};
 
 // No changes here since parenthesis are removed by linter automatically
-interface ParenthesizedTypes extends ConstructorTypes {
+interface ParenthesizedTypes extends TypeFrame {
   Literal: 1;
   Object: object;
   String: string;
   Number: number;
   Boolean: boolean;
-  AnyType: any;
+  Any: any;
 }
 
-const parenthesizedDefaults: ParenthesizedTypes = {
-  Literal: 1,
-  Object: {},
-  String: "two",
-  Number: 2,
-  Boolean: true,
-  AnyType: 2,
-};
-
-interface TypeReferenceTypes extends ConstructorTypes {
+interface TypeReferenceTypesBuiltin extends TypeFrame {
   Literal: Promise<1>;
   Object: Promise<object>;
   String: Promise<string>;
   Number: Promise<number>;
   Boolean: Promise<boolean>;
-  AnyType: Promise<any>;
+  Any: Promise<any>;
 }
 
-const promisify = <T>(value: T): Promise<T> => Promise.resolve(value);
+type L = 1;
+type O = object;
+type S = string;
+type N = number;
+type B = boolean;
+type A = any;
 
-const typeReferenceDefaults: TypeReferenceTypes = {
-  Literal: promisify(1),
-  Object: promisify({}),
-  String: promisify("two"),
-  Number: promisify(2),
-  Boolean: promisify(true),
-  AnyType: promisify(2),
-};
+interface TypeReferenceTypesPredefined extends TypeFrame {
+  Literal: L;
+  Object: O;
+  String: S;
+  Number: N;
+  Boolean: B;
+  Any: A;
+}
 
-interface UnionTypeTypes extends ConstructorTypes {
+interface UnionTypes extends TypeFrame {
   Literal: 1 | string;
   Object: object | string;
   String: string | number;
   Number: number | boolean;
   Boolean: boolean | any;
-  AnyType: any | 1;
+  Any: any | 1;
 }
 
-const unionTypeDefaults: UnionTypeTypes = {
-  Literal: 1,
-  Object: {},
-  String: "two",
-  Number: 2,
-  Boolean: true,
-  AnyType: 2,
-};
-
-interface IntersectionTypeTypes extends ConstructorTypes {
+interface IntersectionTypes extends TypeFrame {
   Literal: 1 & number;
   Object: object & {};
   String: string & "two";
   Number: number & 2;
   Boolean: boolean & true;
-  AnyType: any & 2;
+  Any: any & 2;
 }
 
-const intersectionTypeDefaults: IntersectionTypeTypes = {
-  Literal: 1,
-  Object: {},
-  String: "two",
-  Number: 2,
-  Boolean: true,
-  AnyType: 2,
-};
-
-interface TypeLiteralTypes extends ConstructorTypes {
+interface TypeLiterals extends TypeFrame {
   Literal: { key: 1 };
   Object: { key: object };
   String: { key: string };
   Number: { key: number };
   Boolean: { key: boolean };
-  AnyType: { key: any };
+  Any: { key: any };
 }
 
-const typeLiteralDefaults: TypeLiteralTypes = {
-  Literal: { key: 1 },
-  Object: { key: {} },
-  String: { key: "two" },
-  Number: { key: 2 },
-  Boolean: { key: true },
-  AnyType: { key: 2 },
-};
-
-interface TupleTypeTypes extends ConstructorTypes {
+interface TupleTypes extends TypeFrame {
   Literal: [1];
   Object: [object];
   String: [string];
   Number: [number];
   Boolean: [boolean];
-  AnyType: [any];
+  Any: [any];
 }
 
-const tupleTypeDefaults: TupleTypeTypes = {
-  Literal: [1],
-  Object: [{}],
-  String: ["two"],
-  Number: [2],
-  Boolean: [true],
-  AnyType: [2],
-};
-
-interface ArrayTypeTypes extends ConstructorTypes {
+interface ArrayTypes extends TypeFrame {
   Literal: 1[];
   Object: object[];
   String: string[];
   Number: number[];
   Boolean: boolean[];
-  AnyType: any[];
+  Any: any[];
 }
 
-const arrayTypeDefaults: ArrayTypeTypes = {
-  Literal: [1, 1],
-  Object: [{}, {}],
-  String: ["two", "two"],
-  Number: [2, 2],
-  Boolean: [true, true],
-  AnyType: [2, 2],
-};
-
-interface FunctionTypeTypes extends ConstructorTypes {
+interface FunctionTypes extends TypeFrame {
   Literal: (param: 1) => void;
   Object: (param: object) => void;
   String: (param: string) => void;
   Number: (param: number) => void;
   Boolean: (param: boolean) => void;
-  AnyType: (param: any) => void;
+  Any: (param: any) => void;
 }
-
-const functionTypeDefaults: FunctionTypeTypes = {
-  Literal: (param: 1) => {},
-  Object: (param: object) => {},
-  String: (param: string) => {},
-  Number: (param: number) => {},
-  Boolean: (param: boolean) => {},
-  AnyType: (param: any) => {},
-};
 
 export interface Defaults {
   ParenthesizedType: ParenthesizedTypes;
-  TypeReference: TypeReferenceTypes;
-  UnionType: UnionTypeTypes;
-  IntersectionType: IntersectionTypeTypes;
-  TypeLiteral: TypeLiteralTypes;
-  TupleType: TupleTypeTypes;
-  ArrayType: ArrayTypeTypes;
-  FunctionType: FunctionTypeTypes;
-  ConstructorType: ConstructorDefaults;
+  TypeReferenceBuiltin: TypeReferenceTypesBuiltin;
+  TypeReferencePredefined: TypeReferenceTypesPredefined;
+  UnionType: UnionTypes;
+  IntersectionType: IntersectionTypes;
+  TypeLiteral: TypeLiterals;
+  TupleType: TupleTypes;
+  ArrayType: ArrayTypes;
+  FunctionType: FunctionTypes;
+  ConstructorType: ConstructorTypes;
 }
 
+export const defaultsKeys: (keyof Defaults)[] = [
+  "ParenthesizedType",
+  "TypeReferenceBuiltin",
+  "TypeReferencePredefined",
+  "UnionType",
+  "IntersectionType",
+  "TypeLiteral",
+  "TupleType",
+  "ArrayType",
+  "FunctionType",
+  "ConstructorType",
+];
+
+const promisify = <T>(value: T): Promise<T> => Promise.resolve(value);
+
 export const defaults: Defaults = {
-  ParenthesizedType: parenthesizedDefaults,
-  TypeReference: typeReferenceDefaults,
-  UnionType: unionTypeDefaults,
-  IntersectionType: intersectionTypeDefaults,
-  TypeLiteral: typeLiteralDefaults,
-  TupleType: tupleTypeDefaults,
-  ArrayType: arrayTypeDefaults,
-  FunctionType: functionTypeDefaults,
-  ConstructorType: constructorDefaults,
+  ParenthesizedType: {
+    Literal: 1,
+    Object: {},
+    String: "two",
+    Number: 2,
+    Boolean: true,
+    Any: 2,
+  },
+  TypeReferenceBuiltin: {
+    Literal: promisify(1),
+    Object: promisify({}),
+    String: promisify("two"),
+    Number: promisify(2),
+    Boolean: promisify(true),
+    Any: promisify(2),
+  },
+  TypeReferencePredefined: {
+    Literal: 1,
+    Object: {},
+    String: "two",
+    Number: 2,
+    Boolean: true,
+    Any: 2,
+  },
+  UnionType: {
+    Literal: 1,
+    Object: {},
+    String: "two",
+    Number: 2,
+    Boolean: true,
+    Any: 2,
+  },
+  IntersectionType: {
+    Literal: 1,
+    Object: {},
+    String: "two",
+    Number: 2,
+    Boolean: true,
+    Any: 2,
+  },
+  TypeLiteral: {
+    Literal: { key: 1 },
+    Object: { key: {} },
+    String: { key: "two" },
+    Number: { key: 2 },
+    Boolean: { key: true },
+    Any: { key: 2 },
+  },
+  TupleType: {
+    Literal: [1],
+    Object: [{}],
+    String: ["two"],
+    Number: [2],
+    Boolean: [true],
+    Any: [2],
+  },
+  ArrayType: {
+    Literal: [1, 1],
+    Object: [{}, {}],
+    String: ["two", "two"],
+    Number: [2, 2],
+    Boolean: [true, true],
+    Any: [2, 2],
+  },
+  FunctionType: {
+    Literal: (param: 1) => {},
+    Object: (param: object) => {},
+    String: (param: string) => {},
+    Number: (param: number) => {},
+    Boolean: (param: boolean) => {},
+    Any: (param: any) => {},
+  },
+  ConstructorType: {
+    Literal: 1,
+    Object: {},
+    String: "two",
+    Number: 2,
+    Boolean: true,
+    Any: 2,
+  },
 };
