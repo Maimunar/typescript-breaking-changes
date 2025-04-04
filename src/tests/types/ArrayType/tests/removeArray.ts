@@ -209,9 +209,10 @@ const RemoveArrayTypeFromTupleTypeWithLiteral: GeneralDefaults["TupleType"]["Lit
 
 const ArrayTypeTupleTypeWithObject: ArrayDefaults["TupleType"]["Object"] = [
   [{}],
+  [{}],
 ];
 const RemoveArrayTypeFromTupleTypeWithObject: GeneralDefaults["TupleType"]["Object"] =
-  [[{}]];
+  [[{}], [{}]];
 
 const ArrayTypeTupleTypeWithString: ArrayDefaults["TupleType"]["String"] = [
   ["two"],
@@ -231,9 +232,9 @@ const ArrayTypeTupleTypeWithBoolean: ArrayDefaults["TupleType"]["Boolean"] = [
 const RemoveArrayTypeFromTupleTypeWithBoolean: GeneralDefaults["TupleType"]["Boolean"] =
   [[true]];
 
-const ArrayTypeTupleTypeWithAny: ArrayDefaults["TupleType"]["Any"] = [[2]];
+const ArrayTypeTupleTypeWithAny: ArrayDefaults["TupleType"]["Any"] = [[2], [2]];
 const RemoveArrayTypeFromTupleTypeWithAny: GeneralDefaults["TupleType"]["Any"] =
-  [[2]];
+  [[2], [2]];
 
 // ArrayType
 
