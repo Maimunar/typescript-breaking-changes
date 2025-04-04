@@ -42,6 +42,31 @@ const printRemoveTest = (
   return content;
 };
 
+const printChangeTest = (constructorKey: (typeof typeKeys)[number]) => {
+  // For every literal
+  //  Print out initial value of array of that literal
+  //  Print out all changes to other buildtypes of that literal
+  let testCount = 0;
+  let content = `import { Defaults } from "../../defaults";\n\n`;
+  content += `/*\n * ArrayType ${constructorKey}\n */\n\n`;
+
+  const arrayRawValue = generalDefaults["ArrayType"][constructorKey];
+  const arrayValue = formatValue(arrayRawValue);
+  content += "// Initial Value\n";
+  content += `const ArrayType${constructorKey}: Defaults["ArrayType"]["${constructorKey}"] = ${arrayValue}\n\n`;
+  testCount++;
+  content += "// Changes\n";
+  for (const testKey of defaultsKeys) {
+    if (testKey == "ArrayType") continue;
+    content += `\n// ArrayType${constructorKey}To${testKey}\n`;
+    for (const secondConstructorKey of typeKeys) {
+      content += `const ArrayType${constructorKey}To${testKey}${secondConstructorKey}: Defaults["${testKey}"]["${secondConstructorKey}"] = ${arrayValue}\n`;
+      testCount++;
+    }
+  }
+  return { content, count: testCount };
+};
+
 const printTests = () => {
   const filenames = [`${context}/addArray.ts`, `${context}/removeArray.ts`];
 
@@ -58,6 +83,15 @@ import { Defaults as ArrayDefaults } from "../defaults"\n\n`;
       contents[1] += printRemoveTest(testKey, constructorKey);
       testCount += 2;
     }
+  }
+
+  for (const constructorKey of typeKeys) {
+    const { count, content } = printChangeTest(
+      constructorKey as (typeof typeKeys)[number],
+    );
+    filenames.push(`${context}/changeArray${constructorKey}.ts`);
+    contents.push(content);
+    testCount += count;
   }
 
   for (let i = 0; i < filenames.length; i++) {

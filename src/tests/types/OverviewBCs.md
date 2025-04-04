@@ -13,3 +13,7 @@ There are 1181 Breaking Changes found within them, listed in `ConstructorType/BC
 4.Never can convert into anything else.
 5.Undefined can be converted to undefined and void (but void can not be converted to undefined)
 6.Import, Indexed Access and Type Query types 'inherit' the behaviour of the related primitive type. Changing between them is allowed as long as the primitive type allows it.
+
+### ArrayType
+
+There are 570 Tests for ArrayType.
