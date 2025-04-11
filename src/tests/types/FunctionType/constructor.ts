@@ -1,13 +1,21 @@
-import { defaults as arrayDefaults } from "./defaults";
-import {
-  defaults as generalDefaults,
-  defaultsKeys,
-  typeKeys,
-} from "../defaults";
+import { defaultsKeys, typeKeys, defaults } from "../defaults";
 import fs from "fs";
+import {
+  optionalParamDefaults,
+  requiredParamDefaults,
+  returnDefaults,
+} from "./defaults";
 
 let testCount = 0;
-const context = "src/tests/types/ArrayType/raw";
+const context = "src/tests/types/FunctionType/raw";
+const filenames: string[] = [
+  `${context}/addParameter.ts`,
+  `${context}/removeParameter.ts`,
+  `${context}/makeParameterOptional.ts`,
+  `${context}/makeParameterRequired.ts`,
+  `${context}/addFunctionType.ts`,
+  `${context}/removeFunctionType.ts`,
+];
 
 const formatValue = (value: unknown) => {
   if (typeof value === "string") return `"${value}"`;
@@ -16,91 +24,203 @@ const formatValue = (value: unknown) => {
   return value;
 };
 
-const printAddTest = (
-  testKey: (typeof defaultsKeys)[number],
-  constructorKey: (typeof typeKeys)[number],
+const printIntro = (
+  requiredParam: boolean,
+  optionalParam: boolean,
+  returnBody: boolean,
+  voidFnNoParam: boolean,
 ) => {
-  let content = "";
-  const generalRawValue = generalDefaults[testKey][constructorKey];
-  const generalValue = formatValue(generalRawValue);
-  content += `const ${testKey}With${constructorKey}: GeneralDefaults["${testKey}"]["${constructorKey}"] = ${generalValue};\n`;
+  const imports: string[] = [];
+  if (requiredParam) imports.push("RequiredParamDefaults");
+  if (optionalParam) imports.push("OptionalParamDefaults");
+  if (returnBody) imports.push("ReturnDefaults");
+  if (voidFnNoParam) imports.push("VoidFunctionNoParam");
 
-  content += `const AddArrayTypeTo${testKey}With${constructorKey}: ArrayDefaults["${testKey}"]["${constructorKey}"] = ${generalValue};\n\n`;
+  let content = `import { Defaults as GeneralDefaults } from "../../defaults";\n`;
+
+  content += `import { ${imports.join(", ")} } from "../defaults"`;
+  content += `\n/*\n * FunctionType\n */\n\n`;
+
   return content;
 };
+// 1. Add parameter
+// Initial state - function with no params
+// Add all parameters from required parameters
+// Add all parameters from optional parameters
+const printAddParameter = () => {
+  let content = printIntro(true, true, false, true);
 
-const printRemoveTest = (
-  testKey: (typeof defaultsKeys)[number],
-  constructorKey: (typeof typeKeys)[number],
-) => {
-  let content = "";
-  const arrayRawValue = arrayDefaults[testKey][constructorKey];
-  const arrayValue = formatValue(arrayRawValue);
-  content += `const ArrayType${testKey}With${constructorKey}: ArrayDefaults["${testKey}"]["${constructorKey}"] = ${arrayValue};\n`;
+  content += "// Initial State\n";
+  content += `const FunctionTypeWithNoParams: VoidFunctionNoParam = () => {};\n`;
+  content += "FunctionTypeWithNoParams();\n\n";
 
-  content += `const RemoveArrayTypeFrom${testKey}With${constructorKey}: GeneralDefaults["${testKey}"]["${constructorKey}"] = ${arrayValue};\n\n`;
-  return content;
-};
-
-const printChangeTest = (constructorKey: (typeof typeKeys)[number]) => {
-  // For every literal
-  //  Print out initial value of array of that literal
-  //  Print out all changes to other buildtypes of that literal
-  let testCount = 0;
-  let content = `import { Defaults } from "../../defaults";\n\n`;
-  content += `/*\n * ArrayType ${constructorKey}\n */\n\n`;
-
-  const arrayRawValue = generalDefaults["ArrayType"][constructorKey];
-  const arrayValue = formatValue(arrayRawValue);
-  content += "// Initial Value\n";
-  content += `const ArrayType${constructorKey}: Defaults["ArrayType"]["${constructorKey}"] = ${arrayValue}\n\n`;
   testCount++;
-  content += "// Changes\n";
+  content += "// Changes\n\n";
   for (const testKey of defaultsKeys) {
-    if (testKey == "ArrayType") continue;
-    content += `\n// ArrayType${constructorKey}To${testKey}\n`;
-    for (const secondConstructorKey of typeKeys) {
-      content += `const ArrayType${constructorKey}To${testKey}${secondConstructorKey}: Defaults["${testKey}"]["${secondConstructorKey}"] = ${arrayValue}\n`;
+    content += `// Add Parameter - ${testKey}\n`;
+    content += "// Required\n";
+    for (const constructorKey of typeKeys) {
+      content += `const AddRequiredParam${testKey}${constructorKey}: RequiredParamDefaults["${testKey}"]["${constructorKey}"] = () => {};\n`;
+      content += `AddRequiredParam${testKey}${constructorKey}();\n`;
+
+      testCount++;
+    }
+    content += "\n// Optional\n";
+
+    for (const constructorKey of typeKeys) {
+      content += `const AddOptionalParam${testKey}${constructorKey}: OptionalParamDefaults["${testKey}"]["${constructorKey}"] = () => {};\n`;
+      content += `AddOptionalParam${testKey}${constructorKey}();\n`;
+
       testCount++;
     }
   }
-  return { content, count: testCount };
+  return content;
 };
 
-const printTests = () => {
-  const filenames = [`${context}/addArray.ts`, `${context}/removeArray.ts`];
+// 2. Remove parameter
+// Initial state - all functions from required and optional
+// Changes - the function with no params
+const printRemoveParameter = () => {
+  let content = printIntro(true, true, false, true);
 
-  const c = `import { Defaults as GeneralDefaults } from "../../defaults";
-import { Defaults as ArrayDefaults } from "../defaults"\n\n`;
-  const contents = [c, c]; // Add, Remove
-
+  testCount++;
   for (const testKey of defaultsKeys) {
-    contents[0] += `// ${testKey}\n\n`;
-    contents[1] += `// ${testKey}\n\n`;
+    content += `// Remove Parameter - ${testKey}\n`;
+    content += "// Required\n";
     for (const constructorKey of typeKeys) {
-      contents[0] += printAddTest(testKey, constructorKey);
-      testCount += 2;
-      contents[1] += printRemoveTest(testKey, constructorKey);
-      testCount += 2;
+      const arrayValue = requiredParamDefaults[testKey][constructorKey];
+      const paramValue = formatValue(defaults[testKey][constructorKey]);
+      content += `const FunctionTypeWithRequiredParam${testKey}${constructorKey}: RequiredParamDefaults["${testKey}"]["${constructorKey}"] = ${arrayValue} \n`;
+      content += `FunctionTypeWithRequiredParam${testKey}${constructorKey}(${paramValue});\n`;
+
+      content += `const RemoveRequiredParam${testKey}${constructorKey}: VoidFunctionNoParam = ${arrayValue};\n`;
+      content += `RemoveRequiredParam${testKey}${constructorKey}(${paramValue});\n\n`;
+
+      testCount++;
+    }
+    content += "\n// Optional\n";
+
+    for (const constructorKey of typeKeys) {
+      const arrayValue = optionalParamDefaults[testKey][constructorKey];
+      const paramValue = formatValue(defaults[testKey][constructorKey]);
+      content += `const FunctionTypeWithOptionalParam${testKey}${constructorKey}: OptionalParamDefaults["${testKey}"]["${constructorKey}"] = ${arrayValue} \n`;
+      content += `FunctionTypeWithOptionalParam${testKey}${constructorKey}(${paramValue});\n`;
+
+      content += `const RemoveOptionalParam${testKey}${constructorKey}: VoidFunctionNoParam = ${arrayValue};\n`;
+      content += `RemoveOptionalParam${testKey}${constructorKey}(${paramValue});\n\n`;
+
+      testCount++;
+    }
+  }
+  return content;
+};
+
+const printMakeParameterOptional = () => {
+  // 3. Making param optional
+  // Initial state - parameter from required
+  // Changes - same parameter from optional
+  let content = printIntro(true, true, false, false);
+  for (const testKey of defaultsKeys) {
+    content += `// Make Parameter Optional - ${testKey}\n`;
+    for (const constructorKey of typeKeys) {
+      const arrayValue = requiredParamDefaults[testKey][constructorKey];
+      const paramValue = formatValue(defaults[testKey][constructorKey]);
+      content += `const FunctionTypeWithRequiredParam${testKey}${constructorKey}: RequiredParamDefaults["${testKey}"]["${constructorKey}"] = ${arrayValue} \n`;
+      content += `FunctionTypeWithRequiredParam${testKey}${constructorKey}(${paramValue});\n`;
+
+      content += `const ChangeRequiredParamToOptional${testKey}${constructorKey}: OptionalParamDefaults["${testKey}"]["${constructorKey}"] = ${arrayValue} \n`;
+      content += `ChangeRequiredParamToOptional${testKey}${constructorKey}(${paramValue});\n`;
+
+      testCount++;
+    }
+  }
+  return content;
+};
+
+const printMakeParameterRequired = () => {
+  // 4. Making param required
+  // Initial state - parameter from optional
+  // Changes - same parameter from required
+  let content = printIntro(true, true, false, false);
+  for (const testKey of defaultsKeys) {
+    content += `// Make Parameter Optional - ${testKey}\n`;
+    for (const constructorKey of typeKeys) {
+      const arrayValue = optionalParamDefaults[testKey][constructorKey];
+      const paramValue = formatValue(defaults[testKey][constructorKey]);
+      content += `const FunctionTypeWithOptionalParam${testKey}${constructorKey}: OptionalParamDefaults["${testKey}"]["${constructorKey}"] = ${arrayValue} \n`;
+      content += `FunctionTypeWithOptionalParam${testKey}${constructorKey}(${paramValue});\n`;
+      content += `FunctionTypeWithOptionalParam${testKey}${constructorKey}();\n`;
+
+      content += `const ChangeOptionalParamToRequired${testKey}${constructorKey}: RequiredParamDefaults["${testKey}"]["${constructorKey}"] = ${arrayValue} \n`;
+      content += `ChangeOptionalParamToRequired${testKey}${constructorKey}(${paramValue});\n`;
+      content += `ChangeOptionalParamToRequired${testKey}${constructorKey}();\n\n`;
+
+      testCount++;
     }
   }
 
-  for (const constructorKey of typeKeys) {
-    const { count, content } = printChangeTest(
-      constructorKey as (typeof typeKeys)[number],
-    );
-    filenames.push(`${context}/changeArray${constructorKey}.ts`);
-    contents.push(content);
-    testCount += count;
+  return content;
+};
+
+const printAddFunctionType = () => {
+  // 5. Add function type
+  // Initial states - all constructor types
+  // Changes - function with the same return body
+  let content = printIntro(false, false, true, false);
+
+  for (const testKey of defaultsKeys) {
+    content += `// Add Function Type - ${testKey}\n`;
+    for (const constructorKey of typeKeys) {
+      const value = formatValue(defaults[testKey][constructorKey]);
+      content += `const VariableOf${testKey}${constructorKey}: GeneralDefaults["${testKey}"]["${constructorKey}"] = ${value} \n`;
+
+      content += `const AddFunctionType${testKey}${constructorKey}: ReturnDefaults["${testKey}"]["${constructorKey}"] = ${value} \n\n`;
+
+      testCount++;
+    }
+  }
+  return content;
+};
+
+const printRemoveFunctionType = () => {
+  // 6. Remove function type
+  // Initial states - all functions with different return bodies
+  // Same types from constructor types
+  let content = printIntro(false, false, true, false);
+  for (const testKey of defaultsKeys) {
+    content += `// Remove Function Type - ${testKey}\n`;
+    for (const constructorKey of typeKeys) {
+      const value = formatValue(returnDefaults[testKey][constructorKey]);
+      content += `const VariableOf${testKey}${constructorKey}: ReturnDefaults["${testKey}"]["${constructorKey}"] = ${value} \n`;
+      content += `VariableOf${testKey}${constructorKey}();\n`;
+
+      content += `const RemoveFunctionType${testKey}${constructorKey}: GeneralDefaults["${testKey}"]["${constructorKey}"] = ${value} \n`;
+      content += `RemoveFunctionType${testKey}${constructorKey}();\n\n`;
+
+      testCount++;
+    }
   }
 
+  return content;
+};
+
+const printTests = () => {
+  const content: string[] = [];
+  testCount++;
+
+  content.push(printAddParameter());
+  content.push(printRemoveParameter());
+  content.push(printMakeParameterOptional());
+  content.push(printMakeParameterRequired());
+  content.push(printAddFunctionType());
+  content.push(printRemoveFunctionType());
+
   for (let i = 0; i < filenames.length; i++) {
-    fs.writeFile(filenames[i], contents[i], (err) => {
+    fs.writeFile(filenames[i], content[i], (err) => {
       if (err) console.log(err);
     });
   }
   return { testCount };
 };
 
-const r = printTests();
-console.log(r);
+console.log(printTests());

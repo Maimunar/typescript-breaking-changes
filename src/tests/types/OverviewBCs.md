@@ -49,3 +49,5 @@ They are tested in more complex examples within the other types, but no tests ar
 ### TypeReference
 
 ### UnionType
+
+### Total Count

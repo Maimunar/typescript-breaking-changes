@@ -1,6 +1,12 @@
 /* eslint @typescript-eslint/no-explicit-any: 0*/
 
-type TypeKeys = "Literal" | "Object" | "String" | "Number" | "Boolean" | "Any";
+export type TypeKeys =
+  | "Literal"
+  | "Object"
+  | "String"
+  | "Number"
+  | "Boolean"
+  | "Any";
 type TypeFrame = { [Property in TypeKeys]: any };
 
 export const typeKeys: TypeKeys[] = [
