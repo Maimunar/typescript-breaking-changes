@@ -26,7 +26,7 @@ Adding a union is never a BC.
 
 ### Remove Union
 
-Removing a union is not a BC, unless:
+Removing a union is a BC, unless:
 
 1. There is an "any" type left in the union
 2. Number is left in the union while a number literal was removed, similarly for all types
