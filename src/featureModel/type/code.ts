@@ -180,41 +180,47 @@ export const Type: FeatureModel = {
       childrenRelation: "xor",
       children: [
         {
-          name: "LiteralType",
-        },
-        {
-          name: "TypeKeyword",
+          name: "PrimitiveType",
           childrenRelation: "xor",
           children: [
             {
-              name: "string",
+              name: "LiteralType",
             },
             {
-              name: "number",
-            },
-            {
-              name: "boolean",
-            },
-            {
-              name: "any",
-            },
-            {
-              name: "never",
-            },
-            {
-              name: "object",
-            },
-            {
-              name: "symbol",
-            },
-            {
-              name: "undefined",
-            },
-            {
-              name: "unknown",
-            },
-            {
-              name: "void",
+              name: "TypeKeyword",
+              childrenRelation: "xor",
+              children: [
+                {
+                  name: "string",
+                },
+                {
+                  name: "number",
+                },
+                {
+                  name: "boolean",
+                },
+                {
+                  name: "any",
+                },
+                {
+                  name: "never",
+                },
+                {
+                  name: "object",
+                },
+                {
+                  name: "symbol",
+                },
+                {
+                  name: "undefined",
+                },
+                {
+                  name: "unknown",
+                },
+                {
+                  name: "void",
+                },
+              ],
             },
           ],
         },
