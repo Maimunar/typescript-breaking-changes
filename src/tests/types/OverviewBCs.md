@@ -24,6 +24,13 @@ When refering to a primitive type (any, object...), we mean that this type can a
 - Union with 1 member in the types mentioned
 - Intersection resulting in 1 of the above types
 
+### Changing between types
+
+- Anything can be changed to any type and not be a BC.
+- ArrayType, FunctionType, TupleType, Builtin Promise type can be changed to object and not be a BC.
+- Literal type can be changed to type keyword of the same type
+- TupleType can be changed to ArrayType (of the same type) and not be a BC
+
 ### ArrayType
 
 There are 570 Tests for ArrayType.
@@ -106,5 +113,6 @@ They are tested in more complex examples within the other types, but no tests ar
 6. TypeLiteral: 4320 Tests; 954 BCs
 7. TypeReference: 120 Tests; 111 BCs
 8. UnionType: 10800 Tests; 3213 BCs
+9. Changing between BuildTypes: 3240 Tests; 2597 BCs
 
-9. Total: 25917 Tests; 11936 BCs
+Total: 29157 Tests; 14533 BCs
