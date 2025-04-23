@@ -1,6 +1,6 @@
 # Export Tests
 
-Default Explorts Can be with an Expression or an Identifier
+Default Exports Can be with an Expression or an Identifier
 
 ## Usage
 

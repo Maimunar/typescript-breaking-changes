@@ -1,0 +1,4 @@
+interface a {
+ child: any
+ }
+
