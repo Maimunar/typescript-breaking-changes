@@ -16,7 +16,7 @@ any & string
 - Start with any combination of 2 buildtypes
 - Remove the second
 
-We end up with a total of 7200 tests
+We end up with a total of 7200 tests and 5532 BCs
 
 ## Analysis
 
