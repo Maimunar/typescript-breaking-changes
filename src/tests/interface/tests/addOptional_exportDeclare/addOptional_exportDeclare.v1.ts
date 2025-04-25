@@ -1,0 +1,1 @@
+export declare interface TestInterface { member: number}
