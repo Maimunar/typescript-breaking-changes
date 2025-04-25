@@ -1,0 +1,1 @@
+export  { TestFnType } from '../../helper'
