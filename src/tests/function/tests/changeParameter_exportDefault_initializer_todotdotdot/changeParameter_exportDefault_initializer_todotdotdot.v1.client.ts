@@ -1,0 +1,4 @@
+import a from "./changeParameter_exportDefault_initializer_todotdotdot.v1";
+
+a();
+a(1);
