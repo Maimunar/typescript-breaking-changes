@@ -1,0 +1,2 @@
+removeTypeAlias_export
+removeTypeAlias_exportDeclare
