@@ -32,3 +32,4 @@ Removing a member is a BC (optional or not).
 Making a member optional is not a BC
 Making an optional member required is a BC.
 Changing a member name is a BC.
+Removing export is a BC

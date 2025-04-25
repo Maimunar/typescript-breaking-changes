@@ -35,3 +35,4 @@ We will continue the testing with the other 4 states, since the first 4 are not 
 3. Removing an enum member is always a BC
 4. Adding and removing an initializer is not a BC
 5. Changing from string initializer to number and vice versa is not a BC
+6. Removing export is always a BC
