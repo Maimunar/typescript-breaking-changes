@@ -1,0 +1,5 @@
+export default abstract class TestClass {
+  public async  testMethod()  {
+    return 1
+  }
+}

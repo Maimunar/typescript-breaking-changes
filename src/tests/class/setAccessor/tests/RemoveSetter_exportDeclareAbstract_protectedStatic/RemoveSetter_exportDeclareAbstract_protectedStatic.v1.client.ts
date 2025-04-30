@@ -1,0 +1,3 @@
+import { TestClass } from "./RemoveSetter_exportDeclareAbstract_protectedStatic.v1";
+
+class TestClassChild extends TestClass { }

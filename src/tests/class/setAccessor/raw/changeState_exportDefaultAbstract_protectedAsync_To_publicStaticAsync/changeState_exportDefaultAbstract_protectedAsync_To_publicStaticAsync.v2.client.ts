@@ -1,0 +1,3 @@
+import TestClass from "./changeState_exportDefaultAbstract_protectedAsync_To_publicStaticAsync.v2";
+
+class TestClassChild extends TestClass { }

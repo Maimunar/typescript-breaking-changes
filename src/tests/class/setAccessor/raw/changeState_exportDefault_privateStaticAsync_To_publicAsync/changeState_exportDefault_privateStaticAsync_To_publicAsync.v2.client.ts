@@ -1,0 +1,6 @@
+import TestClass from "./changeState_exportDefault_privateStaticAsync_To_publicAsync.v2";
+
+class TestClassChild extends TestClass { }
+const testClass = new TestClass();
+const testClassChild = new TestClassChild();
+TestClass.testMethod();

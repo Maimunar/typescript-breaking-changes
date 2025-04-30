@@ -1,0 +1,5 @@
+export default class TestClass {
+  protected set testSetter(x:number) {
+    // setter body
+  }
+}
