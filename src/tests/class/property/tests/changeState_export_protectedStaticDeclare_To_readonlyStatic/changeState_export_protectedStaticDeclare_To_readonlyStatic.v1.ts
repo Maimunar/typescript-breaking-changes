@@ -1,0 +1,4 @@
+export class TestClass {
+  protected static declare  testProperty: number;
+
+}
