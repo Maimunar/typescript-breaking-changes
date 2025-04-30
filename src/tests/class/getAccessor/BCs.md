@@ -1,0 +1,6 @@
+RemoveGetter_exportDeclare_public
+RemoveGetter_exportDeclare_publicStatic
+RemoveGetter_exportDefault_public
+RemoveGetter_exportDefault_publicStatic
+RemoveGetter_export_public
+RemoveGetter_export_publicStatic
