@@ -1,0 +1,4 @@
+import { TestClass } from "./RemoveMethodParam_export_publicStaticAsync_initializer.v1";
+
+const testClass = new TestClass();
+TestClass.testMethod(1);

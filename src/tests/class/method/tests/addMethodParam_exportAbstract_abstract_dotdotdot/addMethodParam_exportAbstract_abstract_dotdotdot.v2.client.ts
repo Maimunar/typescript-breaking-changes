@@ -1,0 +1,2 @@
+import { TestClass } from "./addMethodParam_exportAbstract_abstract_dotdotdot.v2";
+

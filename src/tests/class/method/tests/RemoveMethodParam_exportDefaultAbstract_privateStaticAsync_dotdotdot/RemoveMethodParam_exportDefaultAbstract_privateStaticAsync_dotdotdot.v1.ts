@@ -1,0 +1,5 @@
+export default abstract class TestClass {
+  private static async  testMethod(...param: number[])  {
+    return 1
+  }
+}
