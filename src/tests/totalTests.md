@@ -32,6 +32,17 @@ Total: 387 Tests; 173 BCs
 
 ### Class
 
+1. Overall - 42 tests; 33 BCs
+2. Constructor - 150 tests; 20 BCs
+3. Getter - 96 tests; 6 BCs
+4. Setter - 96 tests; 6 BCs.
+5. Method - 2259 tests; 422 BCs
+6. Property - 8553 Tests; 2460 BCs
+
+Total: 11196 Tests
+Total: 2956 BCs
+
 ### Total
 
-29544 Tests; 14806 BCs
+40740 Tests
+17762 BCs
