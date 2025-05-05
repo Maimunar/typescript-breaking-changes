@@ -22,10 +22,11 @@ We have 5 states:
 3. Export Async
 4. Export Default Async
 5. Async
+6. Export Default
 
 #### Changes
 
-Based on these changes, we have 5 (states) \* 4 (potential new states) = 20 tests. We test them in a single context, so we have 20 tests.
+Based on these changes, we have 6 (states) \* 5 (potential new states) = 30 tests. We test them in a single context, so we have 30 tests.
 
 ### Name
 
@@ -75,4 +76,4 @@ They are not tested here.
 ## Total
 
 The total test count is :
-20 (modifiers) + 10 (name) + 40 (parameters removal) + 180 (parameters addition) + 24 (parameter operator) + 8 (parameter name) = 282 tests
+30 (modifiers) + 10 (name) + 40 (parameters removal) + 180 (parameters addition) + 24 (parameter operator) + 8 (parameter name) = 292 tests
