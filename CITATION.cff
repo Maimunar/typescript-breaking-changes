@@ -10,6 +10,5 @@ type: software
 authors:
   - given-names: Aleksandar
     family-names: Ivanov
-    email: a.ivanov@student.tue.nl
     affiliation: Eindhoven University of Technology
 repository-code: 'https://github.com/Maimunar/typescript-breaking-changes'
