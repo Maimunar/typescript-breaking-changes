@@ -1,0 +1,15 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Breaking Changes in Typescript
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Aleksandar
+    family-names: Ivanov
+    email: a.ivanov@student.tue.nl
+    affiliation: Eindhoven University of Technology
+repository-code: 'https://github.com/Maimunar/typescript-breaking-changes'
